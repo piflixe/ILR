@@ -16,6 +16,7 @@ Version 01:
 - first running
 
 */
+#define DEBUGPRINT(x) if(debug==true) Serial.println( x );
 
 // including libraries
 // #include <avr/pgmspace.h> // library for accessing Data stored in program memory 
@@ -39,7 +40,7 @@ int error[Nval];  // array of values with errors (desired value - real value)
 unsigned int i = 0;
 
 // flag to be set when new values for DAC are ready
-boolean flagReady = false;
+volatile boolean flagReady = false;
 
 // flag to be set when a periode of the signal is completed
 volatile boolean flagPeriod = false;
@@ -90,30 +91,39 @@ void loop() {
     if(debug==true){delay(300);}
 
     // applying update law
+    int neighbour_left = 0;
+    int neighbour_right = 0;
     for (int j = 0; j < Nval; j++)
     {
       if (j == 0) // first value
       {
-        valDACn[j]=valDAC[j] + ((float)error[j])*alpha + (  (float)(error[j+1] + error[Nval-1])  )*beta;
+        neighbour_left = Nval-1; // rollover left
+        neighbour_right = j+1;
       }
       else if (j == Nval-1) // last value
       {
-        valDACn[j]=valDAC[j] + (float)error[j]*alpha + ((float)error[0] + (float)error[j-1])*beta;
+        neighbour_left = j-1;
+        neighbour_right = 0; // rollover right
       }
       else // some values in the middle 
       {
-        valDACn[j]=valDAC[j] + (float)error[j]*alpha + ((float)error[j+1] + (float)error[j-1])*beta;
+        neighbour_left = j-1;
+        neighbour_right = j+1;
       }
       
+      valDACn[j]=valDAC[j] + ((float)error[j])*alpha + (  (float)(error[neighbour_right] + error[neighbour_left])  )*beta;
+
+      // cap values to max / min
       if (valDACn[j]>4095)
       {
         valDACn[j] = 4095;
-        if(debug==true){Serial.println("oberhalb Regelbereich");}
+        DEBUGPRINT("oberhalb Regelbereich")
       }
       else if (valDACn[j] < 0)
       {
         valDACn[j] = 0;
-        if(debug==true){Serial.println("unterhalb Regelbereich");}
+        if(debug==true)
+          Serial.println("unterhalb Regelbereich");
       }
     }
     
@@ -124,21 +134,22 @@ void loop() {
       valDAC[j]=valDACn[j];
       if(debug==true){Serial.println(valDAC[j]);}
     }
-    if(debug==true){delay(300);}
+    if(debug==true) delay(300);
   }
 }
 
 void changei() {
   // setting DAC value
-  analogWrite(PIN_DAC, (int)valDAC[i]);
+  analogWrite(PIN_DAC, ((int)valDAC[i]));
 
   // setting ADC value
   valADC[i] = analogRead(PIN_ADC);
 
   // incrementing i
   i = i + 1;
-  if (i >= Nval) { // checking if Period is complete
-    i = 0;       // resetting i
+  if (i >= Nval) // checking if Period is complete
+  {
+    i = 0;             // resetting i
     flagPeriod = true; // setting flag
   }
 }
