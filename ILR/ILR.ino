@@ -18,8 +18,8 @@ Date: 21.3.15
 // declaring constants
 const unsigned int PIN_ADC = A0;
 const unsigned int PIN_DAC = DAC1;
-float alpha = 0.05;
-float beta = 0.00;
+float alpha = 0.3;
+float beta = 0.1;
 
 // declaring variables
 volatile unsigned int inputSignal[Nval]; // array of values read from ADC
@@ -58,7 +58,7 @@ void setup() {
   // using Serial Interface for debugging
   Serial.begin(115200);
 
-  if(debug==true) Serial.println("gelesene Werte:");
+  DEBUGPRINT("gelesene Werte:")
   // initialise variables
   
   for (int j = 0; j < Nval; j++)
@@ -71,7 +71,7 @@ void setup() {
     outputSignalStorageA[j] = table[j]; //pgm_read_word(&table[j]);
     outputSignalStorageB[j] = 0;
     
-    if(debug==true) Serial.println(outputSignalStorageA[j]);
+    DEBUGPRINT(outputSignalStorageA[j]);
   }
   // setting initial stats for pointers
   outputSignal = outputSignalStorageA;
@@ -122,11 +122,10 @@ void loop() {
       else if (outputSignalCalc[j] < 0)
       {
         outputSignalCalc[j] = 0;
-        if(debug==true)
-        Serial.println("unterhalb Regelbereich");
+        DEBUGPRINT("unterhalb Regelbereich")
       }
     }
-    flagCalculationReady=true;
+    flagCalculationReady = true;
   }
 }
 
@@ -137,70 +136,43 @@ void changei() {
   // setting ADC value
   inputSignal[i] = analogRead(PIN_ADC);
   error[i] = table[i] - inputSignal[i];
-  if(debug==true){
+  
+  if(debug==true){ // calculating badness and printing error only in debug mode
     badness = badness + error[i]*error[i]; // incrementing badness by quadratic error
     if(i==0) Serial.print("Fehler: ");
     char errorBuffer[6];
     sprintf(errorBuffer, " %4i", error[i]);
     Serial.print(errorBuffer);
-    if(i==(Nval-1)) Serial.print("\n");
+    if(i==(Nval-1)) Serial.print("\n");    // new line at end of period
   }
  
   i = i + 1;  // incrementing i (time axis)
   if (i >= Nval) // checking if Period is complete
   {
-    if(debug==true) {
-      Serial.println("Badness:");
-      Serial.println(badness);
-    }
+    DEBUGPRINT("Badness:")
+    DEBUGPRINT(badness)
     badness = 0; // resetting badness for next period  
-    i = 0;             // resetting i
+    i = 0;       // resetting i for next period
     flagPeriodComplete = true; // setting flag
-    if (flagCalculationReady==true)
-    {
+    if (flagCalculationReady==true) // checking of new output values are ready
+    {                               // and swapping pointers if so
       swapFloatPointers(&outputSignal, &outputSignalCalc);
-      flagCalculationReady=false;
+      flagCalculationReady = false; // clearing flag
     }
   }
 }
 
 void swapIntPointers(int** pointer1,int** pointer2) {
- /* if(debug==true) {
-    Serial.println("Methode swapIntPointers wird aufgerufen...");
-    Serial.println("alte Adressen: ");
-    Serial.println((int)*pointer1,HEX);
-    Serial.println((int)*pointer2,HEX);
-  }*/
-  
   int *tempPointer; // used for swapping pointers 
   tempPointer=*pointer1; // saving address of pointer 1
   *pointer1=*pointer2;    // swapping addresses of pointers
   *pointer2=tempPointer;
-
-  /* if(debug==true) {
-    Serial.println("neue Adressen:");
-    Serial.println((int)*pointer1,HEX);
-    Serial.println((int)*pointer2,HEX);
-  } */
 }
 
 
 void swapFloatPointers(float** pointer1, float** pointer2) {
-  /*if(debug==true) {
-    Serial.println("swapFloatPointers...");
-    Serial.println("alte Adressen:");
-    Serial.println((int)*pointer1,HEX);
-    Serial.println((int)*pointer2,HEX);
-  }*/
-  
   float *tempPointer; // used for swapping pointers 
   tempPointer=*pointer1; // saving pointer 1
   *pointer1=*pointer2;    
   *pointer2=tempPointer;
-  
-  /* if(debug==true) {
-    Serial.println("neue Adressen:");
-    Serial.println((int)*pointer1,HEX);
-    Serial.println((int)*pointer2,HEX);
-  } */
 }
