@@ -18,8 +18,9 @@ Date: 21.3.15
 // declaring constants
 const unsigned int PIN_ADC = A0;
 const unsigned int PIN_DAC = DAC1;
-float alpha = 0.3;
-float beta = 0.1;
+const unsigned int PIN_HARDWAREDEBUG = 53;
+float alpha = 0.1;
+float beta = 0.02;
 
 // declaring variables
 volatile unsigned int inputSignal[Nval]; // array of values read from ADC
@@ -27,7 +28,7 @@ float outputSignalStorageA[Nval]; // array of values to be written on DAC
 float outputSignalStorageB[Nval]; // array of values to be written on DAC
 int errorStorageA[Nval];  // array of values with errors (desired value - real value)
 int errorStorageB[Nval];
-unsigned int badness = 0;          // sum of all quadratic errors for measuring overall control performance
+unsigned int badness = 0;          // sum of all quadratic errors for measuring overall control performance (debug only)
 volatile unsigned int i = 0; // index to be incremented by ISR
 
 // pointer for current output signal and error
@@ -45,7 +46,8 @@ volatile boolean flagCalculationReady = false;
 // flag to be set when a periode of the signal is completed
 volatile boolean flagPeriodComplete = false;
 
-const boolean debug=true;
+const boolean debug = true;
+const boolean hardwareDebug = false;
 
 void setup() {
   // setting resoulution of ADC and DAC to 12bit
@@ -58,6 +60,12 @@ void setup() {
   // using Serial Interface for debugging
   Serial.begin(115200);
 
+  // configuring PINs
+  pinMode(PIN_ADC, INPUT);
+  pinMode(PIN_DAC, OUTPUT);
+  pinMode(PIN_HARDWAREDEBUG, OUTPUT);
+  digitalWrite(PIN_HARDWAREDEBUG, LOW);
+  
   DEBUGPRINT("gelesene Werte:")
   // initialise variables
   
@@ -73,7 +81,7 @@ void setup() {
     
     DEBUGPRINT(outputSignalStorageA[j]);
   }
-  // setting initial stats for pointers
+  // setting initial status for pointers
   outputSignal = outputSignalStorageA;
   outputSignalCalc = outputSignalStorageB;
   error = errorStorageA;
@@ -89,7 +97,11 @@ void loop() {
   {
     swapIntPointers(&error, &errorCalc); // swapping error Pointers
     flagPeriodComplete = false;     // clearing flag
-
+    
+    if(hardwareDebug==true){
+      // DEBUGPRINT("Setting HardwareDebug-PIN to HIGH")
+      analogWrite(PIN_HARDWAREDEBUG, HIGH); // marking beginning of calculation on debug PIN
+    }
     // applying update law
     int neighbour_left = 0;
     int neighbour_right = 0;
@@ -111,10 +123,10 @@ void loop() {
         neighbour_right = j+1;
       }
       
-      outputSignalCalc[j]=outputSignal[j] + ((float)error[j])*alpha + ( (float)(error[neighbour_right] + error[neighbour_left]) )*beta;
+      outputSignalCalc[j]=outputSignal[j] + ((float)errorCalc[j])*alpha + ( (float)(errorCalc[neighbour_right] - errorCalc[neighbour_left]) )*beta;
 
       // cap values to max / min
-      if (outputSignalCalc[j]>4095)
+      if (outputSignalCalc[j] > 4095)
       {
         outputSignalCalc[j] = 4095;
         DEBUGPRINT("oberhalb Regelbereich")
@@ -125,7 +137,28 @@ void loop() {
         DEBUGPRINT("unterhalb Regelbereich")
       }
     }
+    
+    if(hardwareDebug==true){
+     //DEBUGPRINT("Re-Setting HardwareDebug-PIN to LOW")
+     // delay();
+      analogWrite(PIN_HARDWAREDEBUG, LOW); // marking end of calculation on debug PIN
+    }
+    
     flagCalculationReady = true;
+    
+    // printing debug messages for analog in and analog out
+    if(debug==true){
+      Serial.println("analoger Eingang:");
+      for(int j=0; j<Nval; j++){
+        Serial.print(inputSignal[j]); Serial.print(" ");  
+      }
+      Serial.print("\n");
+      Serial.println("analoger Ausgang:");
+      for(int j=0; j<Nval; j++){
+        Serial.print((int)outputSignal[j]); Serial.print(" ");  
+      }
+      Serial.print("\n");
+    }  
   }
 }
 
@@ -135,6 +168,7 @@ void changei() {
 
   // setting ADC value
   inputSignal[i] = analogRead(PIN_ADC);
+  //DEBUGPRINT(i);
   error[i] = table[i] - inputSignal[i];
   
   if(debug==true){ // calculating badness and printing error only in debug mode
@@ -155,9 +189,9 @@ void changei() {
     i = 0;       // resetting i for next period
     flagPeriodComplete = true; // setting flag
     if (flagCalculationReady==true) // checking of new output values are ready
-    {                               // and swapping pointers if so
-      swapFloatPointers(&outputSignal, &outputSignalCalc);
+    {
       flagCalculationReady = false; // clearing flag
+      swapFloatPointers(&outputSignal, &outputSignalCalc); // and swapping pointers if so
     }
   }
 }
@@ -165,7 +199,7 @@ void changei() {
 void swapIntPointers(int** pointer1,int** pointer2) {
   int *tempPointer; // used for swapping pointers 
   tempPointer=*pointer1; // saving address of pointer 1
-  *pointer1=*pointer2;    // swapping addresses of pointers
+  *pointer1=*pointer2;   // swapping addresses of pointers
   *pointer2=tempPointer;
 }
 
