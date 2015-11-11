@@ -1,8 +1,8 @@
 % Skript zur Erstellung eines Spaltenvektors mit Funktionswerten
 
 % Frequenz
-f = 200; % gewünschte Frequenz [Hz]
-f_s = 5e4; % gewünschte Abtastrate [Hz]
+f = 0.2; % gewünschte Frequenz [Hz]
+f_s = 5; % gewünschte Abtastrate [Hz]
 A = 0.3; % Amplitude des Ausgangssignals [V]
 offset=1200;
 
@@ -11,16 +11,16 @@ V_ref = 3.3; % verwendete Referenzspannung DAC [V]
 bit_DAC = 12; % wieviel bit Auflösung hat der DAC?
 
 % Dateiname zum speichern
-filename = './ILR02/Funktionswerte.h';
+filename = './ILR/Funktionswerte.h';
 
 % Perioden ausrechnen
 T = 1/f;
 T_s = 1/f_s;
 
-t = linspace(0, T,  T/T_s);
+t = linspace(0, T-T_s,  T/T_s);
 
 % um halbe Amplitde verschieben
-y = (2^bit_DAC-1) / V_ref * (A*sin(2*pi*f*t)+A*2)+offset;
+y = ((2^bit_DAC)-1) / V_ref * (A*sin(2*pi*f*t)+A) + offset;
 
 % auf ganze Werte runden
 y=round(y);

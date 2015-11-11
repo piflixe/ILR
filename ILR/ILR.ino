@@ -20,7 +20,7 @@ const unsigned int PIN_ADC = A0;
 const unsigned int PIN_DAC = DAC1;
 const unsigned int PIN_HARDWAREDEBUG = 53;
 float alpha = 0.1;
-float beta = 0.02;
+float beta = 0.03;
 
 // declaring variables
 volatile unsigned int inputSignal[Nval]; // array of values read from ADC
@@ -173,11 +173,11 @@ void changei() {
   
   if(debug==true){ // calculating badness and printing error only in debug mode
     badness = badness + error[i]*error[i]; // incrementing badness by quadratic error
-    if(i==0) Serial.print("Fehler: ");
-    char errorBuffer[6];
-    sprintf(errorBuffer, " %4i", error[i]);
-    Serial.print(errorBuffer);
-    if(i==(Nval-1)) Serial.print("\n");    // new line at end of period
+//    if(i==0) Serial.print("Fehler: ");
+//    char errorBuffer[6];
+//    sprintf(errorBuffer, " %4i", error[i]);
+//    Serial.print(errorBuffer);
+//    if(i==(Nval-1)) Serial.print("\n");    // new line at end of period
   }
  
   i = i + 1;  // incrementing i (time axis)
