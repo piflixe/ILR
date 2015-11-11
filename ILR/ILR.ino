@@ -19,8 +19,8 @@ Date: 21.3.15
 const unsigned int PIN_ADC = A0;
 const unsigned int PIN_DAC = DAC1;
 const unsigned int PIN_HARDWAREDEBUG = 53;
-float alpha = 0.1;
-float beta = 0.03;
+const float alpha = 0.1;
+const float beta = 0.1;
 
 // declaring variables
 volatile unsigned int inputSignal[Nval]; // array of values read from ADC
@@ -37,16 +37,13 @@ float *outputSignalCalc;
 int *error;
 int *errorCalc;
 
-// switch for A/B selection (true -> A, false -> B)
-boolean switchAB = true;
-
 // flag to be set when new values for DAC are ready
 volatile boolean flagCalculationReady = false;
 
 // flag to be set when a periode of the signal is completed
 volatile boolean flagPeriodComplete = false;
 
-const boolean debug = true;
+const boolean debug = false;
 const boolean hardwareDebug = false;
 
 void setup() {
@@ -123,7 +120,7 @@ void loop() {
         neighbour_right = j+1;
       }
       
-      outputSignalCalc[j]=outputSignal[j] + ((float)errorCalc[j])*alpha + ( (float)(errorCalc[neighbour_right] - errorCalc[neighbour_left]) )*beta;
+      outputSignalCalc[j] = outputSignal[j] + ((float)errorCalc[j])*alpha + ( (float)(errorCalc[neighbour_right] + errorCalc[neighbour_left]) )*beta;
 
       // cap values to max / min
       if (outputSignalCalc[j] > 4095)
