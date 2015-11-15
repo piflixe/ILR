@@ -20,7 +20,7 @@ const unsigned int PIN_ADC = A0;
 const unsigned int PIN_DAC = DAC1;
 const unsigned int PIN_HARDWAREDEBUG = 53;
 const float alpha = 0.1;
-const float beta = 0.1;
+const float beta = 0.4;
 
 // declaring variables
 volatile unsigned int inputSignal[Nval]; // array of values read from ADC
@@ -120,7 +120,7 @@ void loop() {
         neighbour_right = j+1;
       }
       
-      outputSignalCalc[j] = outputSignal[j] + ((float)errorCalc[j])*alpha + ( (float)(errorCalc[neighbour_right] + errorCalc[neighbour_left]) )*beta;
+      outputSignalCalc[j] = outputSignal[j] + ( (float)(errorCalc[neighbour_right]) )*beta;
 
       // cap values to max / min
       if (outputSignalCalc[j] > 4095)

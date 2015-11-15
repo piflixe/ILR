@@ -1,8 +1,8 @@
 % Skript zur Erstellung eines Spaltenvektors mit Funktionswerten
 
 % Frequenz
-f = 0.2; % gewünschte Frequenz [Hz]
-f_s = 5; % gewünschte Abtastrate [Hz]
+f = 100; % gewünschte Frequenz [Hz]
+f_s = 100e3; % gewünschte Abtastrate [Hz]
 A = 0.3; % Amplitude des Ausgangssignals [V]
 offset=1200;
 
