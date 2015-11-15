@@ -1,8 +1,8 @@
 % Skript zur Erstellung eines Spaltenvektors mit Funktionswerten
 
 % Frequenz
-f = 300; % gewünschte Frequenz [Hz]
-f_s = 100e3; % gewünschte Abtastrate [Hz]
+f = 50; % gewünschte Frequenz [Hz]
+f_s = 25000; % gewünschte Abtastrate [Hz]
 A = 0.3; % Amplitude des Ausgangssignals [V]
 offset=1200;
 
@@ -39,9 +39,9 @@ fprintf(fID, '#define _Funktionswerte_h_\n\n');
 % parameter schreiben 
 % Nval muss auf jeden Fall const sein, weil sonst arrays damit nicht 
 % initalisiert werden können
-fprintf(fID, 'const unsigned int Nval = %g; // number of entries in outputSignal\n', length(y));
-fprintf(fID, 'const unsigned int Tsmic = %g; // sampling rate [micro s]\n', T_s * 1e6);
-fprintf(fID, 'const unsigned int Tmic = %g; // length of one period in outputSignal [micro s]\n\n', T * 1e6);
+fprintf(fID, 'const unsigned int Nval = %g; // Anzahl Eintraege in Wertevektor\n', length(y));
+fprintf(fID, 'const unsigned int Tsmic = %g; // Abtastrate [micro s]\n', T_s * 1e6);
+fprintf(fID, 'const unsigned int Tmic = %g; // Periodendauer Signal [micro s]\n\n', T * 1e6);
 
 fprintf(fID, 'const unsigned int table[] = {\n');
 for i=1:(length(y)-1)
