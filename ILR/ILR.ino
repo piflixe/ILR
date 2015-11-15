@@ -24,8 +24,8 @@ const unsigned int PIN_HARDWAREDEBUG = 53;
 // constants for linear phase lead ILC
 const unsigned int Nsmooth = 10;                                // number of values used as smoothing in update law
 const float SmoothingWeight[Nsmooth] =                          // average weighting for smoothing used in update law
-{0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01};       
-const int PhaseLead = 4;                                       // discrete Phase Lead for digital smoothing in update law
+{0.01, 0.01, 0.01, 0.01, 0.01, 0.01 , 0.01 , 0.01 , 0.01 , 0.01};       
+const int PhaseLead = 30;                                       // discrete Phase Lead for digital smoothing in update law (must be in the range of [1:Nval-Nsmooth]
 
 // DECLARING VARIABLES -----------------------------------------
 // core ILC
@@ -36,7 +36,7 @@ volatile unsigned int timeIndex = 0;                  // index to be incremented
 
 // debugging variables
 unsigned int badness = 0;                // sum of all quadratic errors for measuring overall control performance (debug only)
-const boolean debug = true;             // debugging with Serial Console (works only for very low Tsmic)
+const boolean debug = false;             // debugging with Serial Console (works only for very low Tsmic)
 const boolean hardwareDebug = false;     // debugging with measuring certain timings via digital i/o PINs
 
 void setup() {
@@ -110,26 +110,8 @@ void changeIndex() {
   }
 }
 
-// Index Shift in a FIFO ring buffer manner
-unsigned int indexShift(unsigned int i)
-{
-  unsigned int shiftedIndex;
-  if (i < (Nval - PhaseLead))  // rollover 
-    { shiftedIndex = i + PhaseLead; }
-  else // no rollover needed
-    { shiftedIndex = i - (Nval - PhaseLead); }
-  return shiftedIndex;
-}
 
 
-float updateLaw(unsigned int i)
-{
-  float newOutputSignal;
-  newOutputSignal = outputSignal[indexShift(i)];
-  for (int j=0; j<Nsmooth; j++)
-  {
-    newOutputSignal = newOutputSignal + SmoothingWeight[j] * error[indexShift(i + j)];
-  }
-  return newOutputSignal;
-}
+
+
 
