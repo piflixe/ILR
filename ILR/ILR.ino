@@ -2,11 +2,11 @@
 Arduino Due Sketch for ILC
 
 Author: Felix Piela
-Date: 21.3.15
+Date: 15.11.15
 
 */
 
-#define DEBUGPRINT(x) if(debug==true) Serial.println( x );
+#define DEBUGPRINT(x) if(debug==true) Serial.println( x );    // short call to debug messages
 
 // including libraries
 // #include <avr/pgmspace.h> // library for accessing Data stored in program memory 
@@ -15,36 +15,28 @@ Date: 21.3.15
 // loading data
 #include "Funktionswerte.h" // loading file with values of desired function
 
-// declaring constants
+// DECLARING CONSTANTS -----------------------------------------
+// for PINs
 const unsigned int PIN_ADC = A0;
 const unsigned int PIN_DAC = DAC1;
 const unsigned int PIN_HARDWAREDEBUG = 53;
-const float alpha = 0.1;
-const float beta = 0.4;
 
-// declaring variables
-volatile unsigned int inputSignal[Nval]; // array of values read from ADC
-float outputSignalStorageA[Nval]; // array of values to be written on DAC
-float outputSignalStorageB[Nval]; // array of values to be written on DAC
-int errorStorageA[Nval];  // array of values with errors (desired value - real value)
-int errorStorageB[Nval];
-unsigned int badness = 0;          // sum of all quadratic errors for measuring overall control performance (debug only)
-volatile unsigned int i = 0; // index to be incremented by ISR
+// constants for linear phase lead ILC
+const unsigned int Nsmooth = 3;                                // number of values used as smoothing in update law
+const float SmoothingWeight[Nsmooth] = {0.1 , 0.1 , 0.1};       // average weighting for smoothing used in update law
+const int PhaseLead = 4;                                       // discrete Phase Lead for digital smoothing in update law
 
-// pointer for current output signal and error
-float *outputSignal;
-float *outputSignalCalc;
-int *error;
-int *errorCalc;
+// DECLARING VARIABLES -----------------------------------------
+// core ILC
+// volatile unsigned int inputSignal[Nval]; // array of values read from ADC
+float outputSignal[Nval];                  // array of values to be written on DAC
+int error[Nval];                           // array of values with errors (desired value - real value)
+volatile unsigned int timeIndex = 0;                  // index to be incremented by ISR
 
-// flag to be set when new values for DAC are ready
-volatile boolean flagCalculationReady = false;
-
-// flag to be set when a periode of the signal is completed
-volatile boolean flagPeriodComplete = false;
-
-const boolean debug = false;
-const boolean hardwareDebug = false;
+// debugging variables
+unsigned int badness = 0;                // sum of all quadratic errors for measuring overall control performance (debug only)
+const boolean debug = false;             // debugging with Serial Console (works only for very low Tsmic)
+const boolean hardwareDebug = false;     // debugging with measuring certain timings via digital i/o PINs
 
 void setup() {
   // setting resoulution of ADC and DAC to 12bit
@@ -52,7 +44,7 @@ void setup() {
   analogReadResolution(12);
 
   // Using internal Timer interrupt (DueTimer library)
-  Timer3.attachInterrupt(changei).start(Tsmic);
+  Timer3.attachInterrupt(changeIndex).start(Tsmic);
   
   // using Serial Interface for debugging
   Serial.begin(115200);
@@ -69,26 +61,21 @@ void setup() {
   for (int j = 0; j < Nval; j++)
   {
     // setting ADC and error values to 0
-    inputSignal[j] = 0;
-    errorStorageA[j] = 0;
-    errorStorageB[j] = 0;
+    // inputSignal[j] = 0;
+    error[j] = 0;
     // setting DAC values to data table stored in progmem
-    outputSignalStorageA[j] = table[j]; //pgm_read_word(&table[j]);
-    outputSignalStorageB[j] = 0;
-    
-    DEBUGPRINT(outputSignalStorageA[j]);
+    outputSignal[j] = table[j]; //pgm_read_word(&table[j]);
+
+    // printing outputSignal on Serial Console for debugging
+    DEBUGPRINT(outputSignal[j]);
   }
-  // setting initial status for pointers
-  outputSignal = outputSignalStorageA;
-  outputSignalCalc = outputSignalStorageB;
-  error = errorStorageA;
-  errorCalc = errorStorageB;
- 
+  
   if(debug==true) delay(1000);
 
 }
 
 void loop() {
+  /*
   // checking of Period is complete
   if (flagPeriodComplete == true)
   {
@@ -157,53 +144,45 @@ void loop() {
       Serial.print("\n");
     }  
   }
+  */
 }
 
-void changei() {
+void changeIndex() {
   // setting DAC value
-  analogWrite(PIN_DAC, ((int)outputSignal[i]));
+  analogWrite(PIN_DAC, ((int)outputSignal[timeIndex]));
 
-  // setting ADC value
-  inputSignal[i] = analogRead(PIN_ADC);
+  // measuring current value on ADC
   //DEBUGPRINT(i);
-  error[i] = table[i] - inputSignal[i];
+  error[timeIndex] = table[timeIndex] - analogRead(PIN_ADC);
   
   if(debug==true){ // calculating badness and printing error only in debug mode
-    badness = badness + error[i]*error[i]; // incrementing badness by quadratic error
-//    if(i==0) Serial.print("Fehler: ");
+    badness = badness + error[timeIndex]*error[timeIndex]; // incrementing badness by quadratic error
+//    if(timeIndex==0) Serial.print("Fehler: ");
 //    char errorBuffer[6];
-//    sprintf(errorBuffer, " %4i", error[i]);
+//    sprintf(errorBuffer, " %4i", error[timeIndex]);
 //    Serial.print(errorBuffer);
-//    if(i==(Nval-1)) Serial.print("\n");    // new line at end of period
+//    if(timeIndex==(Nval-1)) Serial.print("\n");    // new line at end of period
   }
  
-  i = i + 1;  // incrementing i (time axis)
-  if (i >= Nval) // checking if Period is complete
+  timeIndex = timeIndex + 1;  // incrementing i (time axis)
+  if (timeIndex >= Nval) // checking if Period is complete
   {
+    timeIndex = 0;       // resetting i for next period
+
+    // debugging code
+    badness = 0; // resetting badness for next period  
     DEBUGPRINT("Badness:")
     DEBUGPRINT(badness)
-    badness = 0; // resetting badness for next period  
-    i = 0;       // resetting i for next period
-    flagPeriodComplete = true; // setting flag
-    if (flagCalculationReady==true) // checking of new output values are ready
-    {
-      flagCalculationReady = false; // clearing flag
-      swapFloatPointers(&outputSignal, &outputSignalCalc); // and swapping pointers if so
-    }
   }
 }
 
-void swapIntPointers(int** pointer1,int** pointer2) {
-  int *tempPointer; // used for swapping pointers 
-  tempPointer=*pointer1; // saving address of pointer 1
-  *pointer1=*pointer2;   // swapping addresses of pointers
-  *pointer2=tempPointer;
-}
 
+/*
+// Index Shift in a FIFO ring buffer manner
+unsigned int indexShift(i)
+{
+  unsigned int shiftedIndex;
+  if (i<
 
-void swapFloatPointers(float** pointer1, float** pointer2) {
-  float *tempPointer; // used for swapping pointers 
-  tempPointer=*pointer1; // saving pointer 1
-  *pointer1=*pointer2;    
-  *pointer2=tempPointer;
 }
+*/
