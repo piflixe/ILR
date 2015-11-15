@@ -22,8 +22,9 @@ const unsigned int PIN_DAC = DAC1;
 const unsigned int PIN_HARDWAREDEBUG = 53;
 
 // constants for linear phase lead ILC
-const unsigned int Nsmooth = 3;                                // number of values used as smoothing in update law
-const float SmoothingWeight[Nsmooth] = {0.1 , 0.1 , 0.1};       // average weighting for smoothing used in update law
+const unsigned int Nsmooth = 10;                                // number of values used as smoothing in update law
+const float SmoothingWeight[Nsmooth] =                          // average weighting for smoothing used in update law
+{0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01};       
 const int PhaseLead = 4;                                       // discrete Phase Lead for digital smoothing in update law
 
 // DECLARING VARIABLES -----------------------------------------
@@ -35,7 +36,7 @@ volatile unsigned int timeIndex = 0;                  // index to be incremented
 
 // debugging variables
 unsigned int badness = 0;                // sum of all quadratic errors for measuring overall control performance (debug only)
-const boolean debug = false;             // debugging with Serial Console (works only for very low Tsmic)
+const boolean debug = true;             // debugging with Serial Console (works only for very low Tsmic)
 const boolean hardwareDebug = false;     // debugging with measuring certain timings via digital i/o PINs
 
 void setup() {
@@ -75,76 +76,7 @@ void setup() {
 }
 
 void loop() {
-  /*
-  // checking of Period is complete
-  if (flagPeriodComplete == true)
-  {
-    swapIntPointers(&error, &errorCalc); // swapping error Pointers
-    flagPeriodComplete = false;     // clearing flag
-    
-    if(hardwareDebug==true){
-      // DEBUGPRINT("Setting HardwareDebug-PIN to HIGH")
-      analogWrite(PIN_HARDWAREDEBUG, HIGH); // marking beginning of calculation on debug PIN
-    }
-    // applying update law
-    int neighbour_left = 0;
-    int neighbour_right = 0;
-    for (int j = 0; j < Nval; j++)
-    {
-      if (j == 0) // first value
-      {
-        neighbour_left = Nval-1; // rollover left
-        neighbour_right = j+1;
-      }
-      else if (j == Nval-1) // last value
-      {
-        neighbour_left = j-1;
-        neighbour_right = 0; // rollover right
-      }
-      else // some values in the middle 
-      {
-        neighbour_left = j-1;
-        neighbour_right = j+1;
-      }
-      
-      outputSignalCalc[j] = outputSignal[j] + ( (float)(errorCalc[neighbour_right]) )*beta;
 
-      // cap values to max / min
-      if (outputSignalCalc[j] > 4095)
-      {
-        outputSignalCalc[j] = 4095;
-        DEBUGPRINT("oberhalb Regelbereich")
-      }
-      else if (outputSignalCalc[j] < 0)
-      {
-        outputSignalCalc[j] = 0;
-        DEBUGPRINT("unterhalb Regelbereich")
-      }
-    }
-    
-    if(hardwareDebug==true){
-     //DEBUGPRINT("Re-Setting HardwareDebug-PIN to LOW")
-     // delay();
-      analogWrite(PIN_HARDWAREDEBUG, LOW); // marking end of calculation on debug PIN
-    }
-    
-    flagCalculationReady = true;
-    
-    // printing debug messages for analog in and analog out
-    if(debug==true){
-      Serial.println("analoger Eingang:");
-      for(int j=0; j<Nval; j++){
-        Serial.print(inputSignal[j]); Serial.print(" ");  
-      }
-      Serial.print("\n");
-      Serial.println("analoger Ausgang:");
-      for(int j=0; j<Nval; j++){
-        Serial.print((int)outputSignal[j]); Serial.print(" ");  
-      }
-      Serial.print("\n");
-    }  
-  }
-  */
 }
 
 void changeIndex() {
@@ -152,7 +84,6 @@ void changeIndex() {
   analogWrite(PIN_DAC, ((int)outputSignal[timeIndex]));
 
   // measuring current value on ADC
-  //DEBUGPRINT(i);
   error[timeIndex] = table[timeIndex] - analogRead(PIN_ADC);
   
   if(debug==true){ // calculating badness and printing error only in debug mode
@@ -163,6 +94,9 @@ void changeIndex() {
 //    Serial.print(errorBuffer);
 //    if(timeIndex==(Nval-1)) Serial.print("\n");    // new line at end of period
   }
+
+  // UPDATE LAW
+  outputSignal[indexShift(timeIndex)] = updateLaw((timeIndex));
  
   timeIndex = timeIndex + 1;  // incrementing i (time axis)
   if (timeIndex >= Nval) // checking if Period is complete
@@ -170,19 +104,32 @@ void changeIndex() {
     timeIndex = 0;       // resetting i for next period
 
     // debugging code
-    badness = 0; // resetting badness for next period  
     DEBUGPRINT("Badness:")
     DEBUGPRINT(badness)
+    badness = 0; // resetting badness for next period  
   }
 }
 
-
-/*
 // Index Shift in a FIFO ring buffer manner
-unsigned int indexShift(i)
+unsigned int indexShift(unsigned int i)
 {
   unsigned int shiftedIndex;
-  if (i<
-
+  if (i < (Nval - PhaseLead))  // rollover 
+    { shiftedIndex = i + PhaseLead; }
+  else // no rollover needed
+    { shiftedIndex = i - (Nval - PhaseLead); }
+  return shiftedIndex;
 }
-*/
+
+
+float updateLaw(unsigned int i)
+{
+  float newOutputSignal;
+  newOutputSignal = outputSignal[indexShift(i)];
+  for (int j=0; j<Nsmooth; j++)
+  {
+    newOutputSignal = newOutputSignal + SmoothingWeight[j] * error[indexShift(i + j)];
+  }
+  return newOutputSignal;
+}
+
