@@ -1,16 +1,13 @@
-/opt/openfoam/ThirdParty-2.3.x/platforms/linux64Gcc/gperftools-svn/bin
-/home/fpiela/OpenFOAM/fpiela-2.3.x/platforms/linux64GccDPOpt/bin
-/opt/openfoam/site/2.3.x/platforms/linux64GccDPOpt/bin
-/opt/openfoam/OpenFOAM-2.3.x/platforms/linux64GccDPOpt/bin
-/opt/openfoam/OpenFOAM-2.3.x/bin
-/opt/openfoam/OpenFOAM-2.3.x/wmake
-/opt/intel/composer_xe_2011_sp1.9.293/bin/intel64
-/opt/intel/composer_xe_2011_sp1.9.293/mpirt/bin/intel64
-/usr/lib64/mpi/gcc/openmpi/bin
-/usr/local/bin
-/usr/bin
-/bin
-/usr/bin/X11
-/usr/games
-/opt/kde3/bin
-/usr/NX/bin
+void changeIndex() {
+  analogWrite(PIN_DAC, (int)outputSignal[timeIndex]); // setting DAC value
+  error[timeIndex] = table[timeIndex] - analogRead(PIN_ADC);
+
+  outputSignal[indexShift(timeIndex)] = updateLaw(timeIndex); //applaying update law
+
+  timeIndex = timeIndex + 1;
+  if (timeIndex >= Nval) // checking if Period is complete
+  {
+    timeIndex = 0;
+  }
+}
+
