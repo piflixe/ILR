@@ -23,8 +23,8 @@ const unsigned int PIN_HARDWAREDEBUG = 53;
 
 // constants for linear phase lead ILC
 const unsigned int Nsmooth = 10;                                // number of values used as smoothing in update law
-const float SmoothingWeight[Nsmooth] =                          // average weighting for smoothing used in update law
-{0.01, 0.01, 0.01, 0.01, 0.01, 0.01 , 0.01 , 0.01 , 0.01 , 0.01};       
+const float ILCgain = 0.2;                                      // overall gain of ILC 
+volatile float SmoothingWeight[Nsmooth];                     // average weighting for smoothing used in update law     
 const int PhaseLead = 30;                                       // discrete Phase Lead for digital smoothing in update law (must be in the range of [1:Nval-Nsmooth]
 
 // DECLARING VARIABLES -----------------------------------------
@@ -58,21 +58,27 @@ void setup() {
   
   DEBUGPRINT("gelesene Werte:")
   // initialise variables
-  
+
+  // initialise error and outputSignal 
   for (int j = 0; j < Nval; j++)
   {
-    // setting ADC and error values to 0
-    // inputSignal[j] = 0;
-    error[j] = 0;
-    // setting DAC values to data table stored in progmem
-    outputSignal[j] = table[j]; //pgm_read_word(&table[j]);
+    error[j] = 0;                     // setting ADC and error values to 0
+    outputSignal[j] = table[j];       // setting DAC values to data table stored in progmem
+    //pgm_read_word(&table[j]);
 
     // printing outputSignal on Serial Console for debugging
     DEBUGPRINT(outputSignal[j]);
   }
-  
-  if(debug==true) delay(1000);
 
+  for (int j = 0; j < Nsmooth; j++)
+  {
+    SmoothingWeight[j] = ILCgain/Nsmooth;
+    if(Nsmooth>6)  // apply linear window
+    {
+      if ( (j==1) || (j==Nsmooth) ) SmoothingWeight[j] = SmoothingWeight[j] / 2;
+    }
+  }
+  if(debug==true) delay(1000);
 }
 
 void loop() {
