@@ -39,81 +39,8 @@ unsigned int badness = 0;                // sum of all quadratic errors for meas
 const boolean debug = false;             // debugging with Serial Console (works only for very low Tsmic)
 const boolean hardwareDebug = false;     // debugging with measuring certain timings via digital i/o PINs
 
-void setup() {
-  // setting resoulution of ADC and DAC to 12bit
-  analogWriteResolution(12);
-  analogReadResolution(12);
-
-  // Using internal Timer interrupt (DueTimer library)
-  Timer3.attachInterrupt(changeIndex).start(Tsmic);
-  
-  // using Serial Interface for debugging
-  Serial.begin(115200);
-
-  // configuring PINs
-  pinMode(PIN_ADC, INPUT);
-  pinMode(PIN_DAC, OUTPUT);
-  pinMode(PIN_HARDWAREDEBUG, OUTPUT);
-  digitalWrite(PIN_HARDWAREDEBUG, LOW);
-  
-  DEBUGPRINT("gelesene Werte:")
-  // initialise variables
-
-  // initialise error and outputSignal 
-  for (int j = 0; j < Nval; j++)
-  {
-    error[j] = 0;                     // setting ADC and error values to 0
-    outputSignal[j] = table[j];       // setting DAC values to data table stored in progmem
-    //pgm_read_word(&table[j]);
-
-    // printing outputSignal on Serial Console for debugging
-    DEBUGPRINT(outputSignal[j]);
-  }
-
-  for (int j = 0; j < Nsmooth; j++)
-  {
-    SmoothingWeight[j] = ILCgain/Nsmooth;
-    if(Nsmooth>6)  // apply linear window
-    {
-      if ( (j==1) || (j==Nsmooth) ) SmoothingWeight[j] = SmoothingWeight[j] / 2;
-    }
-  }
-  if(debug==true) delay(1000);
-}
-
 void loop() {
 
-}
-
-void changeIndex() {
-  // setting DAC value
-  analogWrite(PIN_DAC, ((int)outputSignal[timeIndex]));
-
-  // measuring current value on ADC
-  error[timeIndex] = table[timeIndex] - analogRead(PIN_ADC);
-  
-  if(debug==true){ // calculating badness and printing error only in debug mode
-    badness = badness + error[timeIndex]*error[timeIndex]; // incrementing badness by quadratic error
-//    if(timeIndex==0) Serial.print("Fehler: ");
-//    char errorBuffer[6];
-//    sprintf(errorBuffer, " %4i", error[timeIndex]);
-//    Serial.print(errorBuffer);
-//    if(timeIndex==(Nval-1)) Serial.print("\n");    // new line at end of period
-  }
-
-  // UPDATE LAW
-  outputSignal[indexShift(timeIndex)] = updateLaw((timeIndex));
- 
-  timeIndex = timeIndex + 1;  // incrementing i (time axis)
-  if (timeIndex >= Nval) // checking if Period is complete
-  {
-    timeIndex = 0;       // resetting i for next period
-
-    // debugging code
-    DEBUGPRINT("Badness:")
-    DEBUGPRINT(badness)
-    badness = 0; // resetting badness for next period  
-  }
 }
 
 
