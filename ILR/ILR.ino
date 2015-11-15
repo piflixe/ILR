@@ -22,7 +22,7 @@ const unsigned int PIN_DAC = DAC1;
 const unsigned int PIN_HARDWAREDEBUG = 53;
 
 // constants for linear phase lead ILC
-const unsigned int Nsmooth = 20;                                // number of values used as smoothing in update law
+const unsigned int Nsmooth = 15;                               // number of values used as smoothing in update law
 const float ILCgain = 0.1;                                      // overall gain of ILC 
 volatile float SmoothingWeight[Nsmooth];                     // average weighting for smoothing used in update law     
 const int PhaseLead = 30;                                       // discrete Phase Lead for digital smoothing in update law (must be in the range of [1:Nval-Nsmooth]
