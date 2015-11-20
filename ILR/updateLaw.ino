@@ -1,3 +1,4 @@
+float updateLaw(unsigned int i)
 /* 
  * ILC update law 
  * derived from Longman:
@@ -8,8 +9,6 @@
  * 
  * usage: outputSignal[shiftedTimeIndex] = updateLaw(currentTimeIndex)
  */
-
-float updateLaw(unsigned int i)
 {
   float newOutputSignal;
   newOutputSignal = outputSignal[indexShift(i)];

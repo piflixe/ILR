@@ -40,7 +40,7 @@ fprintf(fID, '#define _Funktionswerte_h_\n\n');
 % Nval muss auf jeden Fall const sein, weil sonst arrays damit nicht 
 % initalisiert werden können
 fprintf(fID, 'const unsigned int Nval = %g; // number of entries in outputSignal\n', length(y));
-fprintf(fID, 'const unsigned int Tsmic = %g; // sampling rate [micro s]\n', T_s * 1e6);
+fprintf(fID, 'unsigned int Tsmic = %g; // sampling rate [micro s]\n', T_s * 1e6);
 fprintf(fID, 'const unsigned int Tmic = %g; // length of one period in outputSignal [micro s]\n\n', T * 1e6);
 
 fprintf(fID, 'const unsigned int table[] = {\n');

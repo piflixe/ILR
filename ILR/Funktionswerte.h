@@ -2,7 +2,7 @@
 #define _Funktionswerte_h_
 
 const unsigned int Nval = 333; // number of entries in outputSignal
-const unsigned int Tsmic = 50; // sampling rate [micro s]
+unsigned int Tsmic = 100;      // sampling rate [micro s]
 const unsigned int Tmic = 3333.33; // length of one period in outputSignal [micro s]
 
 const unsigned int table[] = {
