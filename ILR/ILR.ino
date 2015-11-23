@@ -28,8 +28,8 @@ const unsigned int PIN_HARDWAREDEBUG = 53;
 unsigned int Nsmooth = 10;                 // number of values used as smoothing in update law (must be smaller than NsmoothMax
 const unsigned int NsmoothMax = 30;        // maximum number of index smoothing
 float ILCgain = 0.1;                       // overall gain of ILC 
-volatile float SmoothingWeight[NsmoothMax]; // average weighting for smoothing used in update law     
-int PhaseLead = 30;                        // discrete Phase Lead for digital smoothing in update law (must be in the range of [1:Nval-Nsmooth]
+volatile float SmoothingWeight[NsmoothMax];// average weighting for smoothing used in update law     
+int PhaseLead = 5;                         // discrete Phase Lead for digital smoothing in update law (must be in the range of [1:Nval-Nsmooth]
 boolean Stop = true;                       // start and stop the experiment
 
 float outputSignal[Nval];                  // array of values to be written on DAC
@@ -45,7 +45,7 @@ int menuState = 0;
 
 // debugging variables
 unsigned int badness = 0;                // sum of all quadratic errors for measuring overall control performance (debug only)
-const boolean debug = false;             // debugging with Serial Console (works only for very low Tsmic)
+const boolean debug = false;             // debugging with Serial Console (works only for very high Tsmic -> low frequency)
 const boolean hardwareDebug = false;     // debugging with measuring certain timings via digital i/o PINs
 
 void loop() {

@@ -14,6 +14,7 @@ void setup() {
   // configuring PINs
   pinMode(PIN_ADC, INPUT);
   pinMode(PIN_DAC, OUTPUT);
+  analogWrite(PIN_DAC, 4094/2);
   pinMode(PIN_HARDWAREDEBUG, OUTPUT);
   digitalWrite(PIN_HARDWAREDEBUG, LOW);
   
