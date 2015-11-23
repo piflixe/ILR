@@ -1,14 +1,15 @@
 % Skript zur Erstellung eines Spaltenvektors mit Funktionswerten
 
 % Frequenz
-f = 300; % gewünschte Frequenz [Hz]
-f_s = 100e3; % gewünschte Abtastrate [Hz]
-A = 0.3; % Amplitude des Ausgangssignals [V]
-offset=1200;
+f = 120; % gewünschte Frequenz [Hz]
+f_s = 8e3; % gewünschte Abtastrate [Hz]
+A = 0.2; % Amplitude des Ausgangssignals [V]
+DCfactor = 0.5; % Factor for DC offset (0.5 for midrange)
 
 % Daten des DAC
 V_ref = 3.3; % verwendete Referenzspannung DAC [V]
 bit_DAC = 12; % wieviel bit Auflösung hat der DAC?
+offset = 2^bit_DAC * DCfactor; % calculate integer offset value for DAC
 
 % Dateiname zum speichern
 filename = './ILR/Funktionswerte.h';
