@@ -7,11 +7,14 @@ void setup() {
   Timer3.attachInterrupt(changeIndex).start(Tsmic);
   
   // using Serial Interface for debugging
-  Serial.begin(115200);
+  Serial.begin(115200);  
+  inputString1.reserve(3); // reserve some bytes for the inputString
+  inputString2.reserve(3); //
 
   // configuring PINs
   pinMode(PIN_ADC, INPUT);
   pinMode(PIN_DAC, OUTPUT);
+  analogWrite(PIN_DAC, 4094/2);
   pinMode(PIN_HARDWAREDEBUG, OUTPUT);
   digitalWrite(PIN_HARDWAREDEBUG, LOW);
   
