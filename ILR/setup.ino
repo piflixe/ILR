@@ -37,7 +37,7 @@ void setup() {
     SmoothingWeight[j] = ILCgain/Nsmooth;
     if(Nsmooth>6)  // apply linear window
     {
-      if ( (j==1) || (j==Nsmooth) ) SmoothingWeight[j] = SmoothingWeight[j] / 2;
+      if ( (j==0) || (j==Nsmooth-1) ) SmoothingWeight[j] = SmoothingWeight[j] / 2;
     }
   }
   if(debug==true) delay(1000);

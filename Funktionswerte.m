@@ -2,8 +2,8 @@
 
 % Frequenz
 f = 120; % gewünschte Frequenz [Hz]
-f_s = 8e3; % gewünschte Abtastrate [Hz]
-A = 0.2; % Amplitude des Ausgangssignals [V]
+f_s = 10e3; % gewünschte Abtastrate [Hz]
+A = 0.3; % Amplitude des Ausgangssignals [V]
 DCfactor = 0.5; % Factor for DC offset (0.5 for midrange)
 
 % Daten des DAC
