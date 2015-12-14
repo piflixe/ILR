@@ -11,10 +11,18 @@ float updateLaw(unsigned int i)
  */
 {
   float newOutputSignal;
-  newOutputSignal = outputSignal[indexShift(i)];
-  for (int j=0; j<Nsmooth; j++)
+  int smoothedError = 0;
+
+  // smoothing error values
+  for (unsigned int j=0; j<Nsmooth; j++)
   {
-    newOutputSignal = newOutputSignal + SmoothingWeight[j] * error[indexShift(i + j)];
-  }
+    smoothedError = smoothedError + error[indexShift(i + j)];
+  } 
+  errorSum = errorSum + smoothedError;
+  if (errorSum > 4095) errorSum = 4095; // anti-windup set to 2^12
+
+  // now comes PI style update law
+  newOutputSignal = Kp * (float)smoothedError + Ki * (float)errorSum;
+  
   return newOutputSignal;
 }

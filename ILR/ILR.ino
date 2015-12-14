@@ -26,10 +26,12 @@ const unsigned int PIN_HARDWAREDEBUG = 53;
 // DECLARING VARIABLES -----------------------------------------
 // core ILC
 unsigned int Nsmooth = 12;                 // number of values used as smoothing in update law (must be smaller than NsmoothMax
-const unsigned int NsmoothMax = 30;        // maximum number of index smoothing
-float ILCgain = 0.005ö;                      // overall gain of ILC 
-volatile float SmoothingWeight[NsmoothMax];// average weighting for smoothing used in update law     
-int PhaseLead = 50;                        // discrete Phase Lead for digital smoothing in update law (must be in the range of [1:Nval-Nsmooth]
+// const unsigned int NsmoothMax = 30;        // maximum number of index smoothing
+float Ki = 0.002;                          // I gain of ILC
+int errorSum = 0;                          // error sum for I part of control
+float Kp = 0.0005;                         // P gain of ILC
+// volatile float SmoothingWeight[NsmoothMax];// average weighting for smoothing used in update law     
+int PhaseLead = 20;                        // discrete Phase Lead for digital smoothing in update law (must be in the range of [1:Nval-Nsmooth]
 boolean Stop = true;                       // start and stop the experiment
 
 float outputSignal[Nval];                  // array of values to be written on DAC

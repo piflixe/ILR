@@ -32,13 +32,16 @@ void setup() {
     DEBUGPRINT(outputSignal[j]);
   }
 
+/*
   for (int j = 0; j < Nsmooth; j++)
   {
-    SmoothingWeight[j] = ILCgain/Nsmooth;
+    SmoothingWeight[j] = 1;
     if(Nsmooth>6)  // apply linear window
     {
-      if ( (j==0) || (j==Nsmooth-1) ) SmoothingWeight[j] = SmoothingWeight[j] / 2;
+      if ( (j==0) || (j==Nsmooth-1) ) SmoothingWeight[j] = 0.5;
     }
   }
+*/
+
   if(debug==true) delay(1000);
 }
