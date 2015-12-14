@@ -18,17 +18,17 @@ void getParamValuesFromSerial(boolean rich)
           case 0:
             break; // no second input yet
           case 1:
-            Stop = false;
+            Timer3.start(); // starting ISR on internal interrupt
             if (rich==true) Serial.println("starting Experiment...");
             returnToMenu();
             break;
           case 2:
-            Stop = true;
+            Timer3.stop(); // stopping ISR
             if (rich==true) Serial.println("pausing Experiment...");
             returnToMenu();
             break;
           case 3:
-            Stop = true;
+            Timer3.stop();
             if (rich==true) Serial.println("reseting Experiment...");
             for (int j = 0; j<Nval; j++) // MOVE THIS CODE IN A SETUP FUNCTION LATER!
             {

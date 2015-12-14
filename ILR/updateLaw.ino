@@ -18,6 +18,7 @@ float updateLaw(unsigned int i)
   {
     smoothedError = smoothedError + error[indexShift(i + j)];
   } 
+  smoothedError = smoothedError / Nsmooth;
   errorSum = errorSum + smoothedError;
   if (errorSum > 4095) errorSum = 4095; // anti-windup set to 2^12
 
