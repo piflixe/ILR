@@ -145,14 +145,13 @@ void getParamValuesFromSerial(boolean rich)
         if (rich==true) 
         { 
           Serial.println("invalid input in menu");
-          Serial.print(" \
-            \n usage: \
-            \n 1: Start / Stop / Reset \
-            \n 2: set sample rate \
-            \n 3: set ILC I gain \
-            \n 4: set ILC p gain \
-            \n 5: set PhaseLead (digital LowPass equivalent) \n \
-            ");
+          Serial.print("\nusage:");
+          Serial.print("\n 1: Start / Stop / Reset");
+          Serial.print("\n 2: set sample rate - Tsmic = "); Serial.print(Tsmic);
+          Serial.print("\n 3: set ILC I gain - Ki = "); Serial.print(Ki,3);
+          Serial.print("\n 4: set ILC p gain - Kp = "); Serial.print(Kp,3);
+          Serial.print("\n 5: set PhaseLead (digital LowPass equivalent) - PhaseLead = "); Serial.print(PhaseLead);
+          Serial.print("\n");
         }
         break;
     } 
