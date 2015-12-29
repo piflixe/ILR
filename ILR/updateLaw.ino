@@ -19,11 +19,18 @@ float updateLaw(unsigned int i)
     smoothedError = smoothedError + error[indexShift(i + j)];
   } 
   smoothedError = smoothedError / Nsmooth;
-  errorSum = errorSum + smoothedError;
-  if (errorSum > 4095) errorSum = 4095; // anti-windup set to 2^12
-
+  
+  errorSum[i] = errorSum[i] + smoothedError;
+  if (errorSum[i] > iWindup)  {errorSum[i] = iWindup;}  // anti-windup set to 2^12
+  if (errorSum[i] < -iWindup) {errorSum[i] = -iWindup;} // negative anti windup
+  
   // now comes PI style update law
-  newOutputSignal = Kp * (float)smoothedError + Ki * (float)errorSum;
+  newOutputSignal = Kp * (float)smoothedError + Ki * (float)errorSum[i];
+
+  if (newOutputsignal > 4095) // Signal runs into upper limit of DAC
+    newOutputSignal = 4095;   
+  if (newOutputsignal < 0)
+    newOutputSingal = 0;      // Signal runs into lower limit of DAC
   
   return newOutputSignal;
 }
