@@ -21,7 +21,7 @@ T_s = 1/f_s;
 t = linspace(0, T-T_s,  T/T_s);
 
 % um halbe Amplitde verschieben
-y = ((2^bit_DAC)-1) / V_ref * (A*sin(2*pi*f*t)+A) + offset;
+y = ((2^bit_DAC)-1) / V_ref * (A*sin(2*pi*f*t)) + offset;
 
 % auf ganze Werte runden
 y=round(y);
