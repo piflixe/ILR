@@ -7,7 +7,6 @@ float updateLaw(unsigned int i)
  * input: current time index
  * returns: computed output signal
  * 
- * usage: outputSignal[shiftedTimeIndex] = updateLaw(currentTimeIndex)
  */
 {
   float newOutputSignal;
@@ -21,16 +20,20 @@ float updateLaw(unsigned int i)
   smoothedError = smoothedError / Nsmooth;
   
   errorSum[i] = errorSum[i] + smoothedError;
-  if (errorSum[i] > iWindup)  {errorSum[i] = iWindup;}  // anti-windup set to 2^12
-  if (errorSum[i] < -iWindup) {errorSum[i] = -iWindup;} // negative anti windup
-  
+
   // now comes PI style update law
   newOutputSignal = Kp * (float)smoothedError + Ki * (float)errorSum[i];
 
-  if (newOutputsignal > 4095) // Signal runs into upper limit of DAC
-    newOutputSignal = 4095;   
-  if (newOutputsignal < 0)
-    newOutputSingal = 0;      // Signal runs into lower limit of DAC
-  
+  if (newOutputSignal > 4095) // Signal runs into upper limit of DAC
+  {
+    newOutputSignal = 4095;  
+    DEBUGPRINT("Signal on upper limit of DAC"); 
+  }
+  if (newOutputSignal < 0)
+  {
+    newOutputSignal = 0;      // Signal runs into lower limit of DAC
+    DEBUGPRINT("Sinal on lower limit of DAC");
+  }
+    
   return newOutputSignal;
 }

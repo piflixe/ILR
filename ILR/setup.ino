@@ -5,9 +5,11 @@ void setup() {
 
   // Using internal Timer interrupt (DueTimer library)
   Timer3.attachInterrupt(changeIndex).start(Tsmic);
+  Timer3.stop(); // init in stop condition
   
   // using Serial Interface for debugging
   Serial.begin(115200);  
+  Serial.println("Arduino is up and running");
   inputString1.reserve(3); // reserve some bytes for the inputString
   inputString2.reserve(3); //
 
@@ -24,7 +26,8 @@ void setup() {
   // initialise error and outputSignal 
   for (int j = 0; j < Nval; j++)
   {
-    error[j] = 0;                     // setting ADC and error values to 0
+    error[j] = table[j];                     // setting ADC and error values to 0
+    errorSum[j] = 0;
     outputSignal[j] = table[j];       // setting DAC values to data table stored in progmem
     //pgm_read_word(&table[j]);
 
@@ -32,7 +35,7 @@ void setup() {
     DEBUGPRINT(outputSignal[j]);
   }
 
-/*
+/* OLD STUFF FROM EARLIER VERSION (MAYBE DELETE LATER?)
   for (int j = 0; j < Nsmooth; j++)
   {
     SmoothingWeight[j] = 1;
