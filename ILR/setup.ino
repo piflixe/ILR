@@ -4,8 +4,8 @@ void setup() {
   analogReadResolution(12);
 
   // Using internal Timer interrupt (DueTimer library)
-  Timer3.attachInterrupt(changeIndex).start(Tsmic);
-  Timer3.stop(); // init in stop condition
+  Timer3.setFrequency(sampleFreq);
+  Timer3.attachInterrupt(changeIndex).stop(); // init Timer in stop condition
   
   // using Serial Interface for debugging
   Serial.begin(115200);  

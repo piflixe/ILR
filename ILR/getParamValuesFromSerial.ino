@@ -42,7 +42,7 @@ void getParamValuesFromSerial(boolean rich)
         break;
 
       // SETTING SAMPLE FREQUENCY  
-      case 2: // set value for Tsmic
+      case 2: // set value for sampleFreq
         menuState = 2;
         if (rich==true) {Serial.println("set value for sample Intervall");}
         switch (userInput2)
@@ -50,19 +50,19 @@ void getParamValuesFromSerial(boolean rich)
           case 0:
             break; // no second input yet
           default:
-            if (userInput2 < 30) 
+            if (userInput2 > 100000) 
             { 
-              if (rich==true) Serial.println("value is too low (System would freeze)"); 
+              if (rich==true) Serial.println("value is too high (System would freeze)"); 
             }
             else
             {
-              Tsmic = (unsigned int)userInput2;
-              Timer3.setPeriod(Tsmic);
+              sampleFreq = (unsigned int)userInput2;
+              Timer3.setFrequency(sampleFreq);
               Timer3.start();           // restart Timer since it seems to stop after setPeriod
               if (rich==true)
               {
-                Serial.print("sample rate changed to ");
-                Serial.print(Tsmic);
+                Serial.print("sample frequency changed to ");
+                Serial.print(sampleFreq);
                 Serial.print(" micro seconds\n");
               }
             }
@@ -164,7 +164,7 @@ void getParamValuesFromSerial(boolean rich)
           Serial.println("invalid input in menu");
           Serial.print("\nusage:");
           Serial.print("\n 1: Start / Stop / Reset");
-          Serial.print("\n 2: set sample rate - Tsmic = "); Serial.print(Tsmic);
+          Serial.print("\n 2: set sample rate - sampleFreq = "); Serial.print(sampleFreq);
           Serial.print("\n 3: set ILC I gain - Ki = "); Serial.print(Ki,3);
           Serial.print("\n 4: set ILC p gain - Kp = "); Serial.print(Kp,3);
           Serial.print("\n 5: set PhaseLead  - PhaseLead = "); Serial.print(PhaseLead);
