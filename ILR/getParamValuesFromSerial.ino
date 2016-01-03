@@ -136,7 +136,26 @@ void getParamValuesFromSerial(boolean rich)
             break;
         }
         break;
-
+      // SETTING MOVING AVERAGE FILTER WIDTH
+      case 6:
+        menuState = 6;
+        if (rich==true) Serial.println("set width of moving average low pass filter");
+        switch(userInput2)
+        {
+          case 0:
+            break; // no second input yet
+          default:
+            Nsmooth = (float)userInput2;
+            if (rich==true)
+            {
+              Serial.print("Nsmooth changed to ");
+              Serial.println(Nsmooth);
+            }
+            userInput2 = 0;
+            returnToMenu();
+            break;
+        }
+        break;
       // PRINT MENU IF SOMETHING WEIRD WAS ENTERED  
       default: 
         returnToMenu();   
@@ -148,7 +167,8 @@ void getParamValuesFromSerial(boolean rich)
           Serial.print("\n 2: set sample rate - Tsmic = "); Serial.print(Tsmic);
           Serial.print("\n 3: set ILC I gain - Ki = "); Serial.print(Ki,3);
           Serial.print("\n 4: set ILC p gain - Kp = "); Serial.print(Kp,3);
-          Serial.print("\n 5: set PhaseLead (digital LowPass equivalent) - PhaseLead = "); Serial.print(PhaseLead);
+          Serial.print("\n 5: set PhaseLead  - PhaseLead = "); Serial.print(PhaseLead);
+          Serial.print("\n 6: set moving average filter width (Lowpass) - Nsmooth = "); Serial.print(Nsmooth);
           Serial.print("\n");
         }
         break;

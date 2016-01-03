@@ -27,7 +27,7 @@ const unsigned int PIN_HARDWAREDEBUG = 53;
 // core ILC
 int Nsmooth = 8;                           // number of values used as smoothing in update law (must be smaller than NsmoothMax
 // const unsigned int NsmoothMax = 30;     // maximum number of index smoothing
-float Ki = 0.70;                          // I gain of ILC
+float Ki = 0.070;                          // I gain of ILC
 long errorSum[Nval];                        // error sum for I part of control
 float Kp = 0.150;                          // P gain of ILC
 // volatile float SmoothingWeight[NsmoothMax];// average weighting for smoothing used in update law     
