@@ -25,11 +25,11 @@ const unsigned int PIN_HARDWAREDEBUG = 53;
 
 // DECLARING VARIABLES -----------------------------------------
 // core ILC
-int Nsmooth = 4;                  // number of values used as smoothing in update law (must be smaller than NsmoothMax
-// const unsigned int NsmoothMax = 30;     e// maximum number of index smoothing
-float Ki = 0.400;                          // I gain of ILC
+int Nsmooth = 8;                           // number of values used as smoothing in update law (must be smaller than NsmoothMax
+// const unsigned int NsmoothMax = 30;     // maximum number of index smoothing
+float Ki = 0.70;                          // I gain of ILC
 long errorSum[Nval];                        // error sum for I part of control
-float Kp = 0.600;                          // P gain of ILC
+float Kp = 0.150;                          // P gain of ILC
 // volatile float SmoothingWeight[NsmoothMax];// average weighting for smoothing used in update law     
 int PhaseLead = 1;                        // discrete Phase Lead for digital smoothing in update law (must be in the range of [1:Nval-Nsmooth]
 boolean Stop = true;                       // start and stop the experiment

@@ -1,7 +1,7 @@
 void changeIndex() {
   error[timeIndex] = table[timeIndex] - analogRead(PIN_ADC);
 
-  outputSignal[timeIndex] = 2048 + updateLaw(timeIndex); //applaying update law
+  outputSignal[timeIndex] = updateLaw(timeIndex); //applaying update law
 
   analogWrite(PIN_DAC, (int)outputSignal[timeIndex]); // setting DAC value
 
