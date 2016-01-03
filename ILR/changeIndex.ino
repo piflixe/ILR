@@ -1,16 +1,16 @@
 void changeIndex() {
-  if(Stop==false) // checking if experiment should run or not
+  error[timeIndex] = table[timeIndex] - analogRead(PIN_ADC);
+
+  outputSignal[timeIndex] = updateLaw(timeIndex); //applaying update law
+
+  analogWrite(PIN_DAC, (int)outputSignal[timeIndex]); // setting DAC value
+
+
+  timeIndex = timeIndex + 1;
+  if (timeIndex >= Nval) // checking if Period is complete
   {
-    analogWrite(PIN_DAC, (int)outputSignal[timeIndex]); // setting DAC value
-    error[timeIndex] = table[timeIndex] - analogRead(PIN_ADC);
-
-    outputSignal[indexShift(timeIndex)] = updateLaw(timeIndex); //applaying update law
-
-    timeIndex = timeIndex + 1;
-    if (timeIndex >= Nval) // checking if Period is complete
-    {
-      timeIndex = 0;
-    }
+    timeIndex = 0; 
+    //Serial.println(errorSum[timeIndex]);
   }
 }
 

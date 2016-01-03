@@ -4,9 +4,10 @@ unsigned int indexShift(unsigned int i)
 // returns shifted index
 {
   unsigned int shiftedIndex;
-  if (i < (Nval - PhaseLead))  // rollover 
+  if (i < (Nval - PhaseLead))         // rollover   
     { shiftedIndex = i + PhaseLead; }
-  else // no rollover needed
+  else                                // no rollover needed 
     { shiftedIndex = i - (Nval - PhaseLead); }
+    
   return shiftedIndex;
 }

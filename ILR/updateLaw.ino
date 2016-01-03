@@ -7,14 +7,33 @@ float updateLaw(unsigned int i)
  * input: current time index
  * returns: computed output signal
  * 
- * usage: outputSignal[shiftedTimeIndex] = updateLaw(currentTimeIndex)
  */
 {
   float newOutputSignal;
-  newOutputSignal = outputSignal[indexShift(i)];
-  for (int j=0; j<Nsmooth; j++)
+  int smoothedError = 0;
+
+  // smoothing error values
+  for (unsigned int j=0; j<Nsmooth; j++)
   {
-    newOutputSignal = newOutputSignal + SmoothingWeight[j] * error[indexShift(i + j)];
+    smoothedError = smoothedError + error[indexShift(i + j)];
+  } 
+  smoothedError = smoothedError / Nsmooth;
+  
+  errorSum[i] = errorSum[i] + smoothedError;
+
+  // now comes PI style update law
+  newOutputSignal = 2048 + Kp * (float)smoothedError + Ki * (float)errorSum[i];
+
+  if (newOutputSignal > 4095) // Signal runs into upper limit of DAC
+  {
+    newOutputSignal = 4095;  
+    DEBUGPRINT("Signal on upper limit of DAC"); 
   }
+  if (newOutputSignal < 0)
+  {
+    newOutputSignal = 0;      // Signal runs into lower limit of DAC
+    DEBUGPRINT("Sinal on lower limit of DAC");
+  }
+    
   return newOutputSignal;
 }

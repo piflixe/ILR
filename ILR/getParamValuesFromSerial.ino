@@ -18,23 +18,20 @@ void getParamValuesFromSerial(boolean rich)
           case 0:
             break; // no second input yet
           case 1:
-            Stop = false;
+            Timer3.start(); // starting ISR on internal interrupt
             if (rich==true) Serial.println("starting Experiment...");
             returnToMenu();
             break;
           case 2:
-            Stop = true;
+            Timer3.stop(); // stopping ISR
             if (rich==true) Serial.println("pausing Experiment...");
             returnToMenu();
             break;
           case 3:
-            Stop = true;
+            Timer3.stop();
             if (rich==true) Serial.println("reseting Experiment...");
-            for (int j = 0; j<Nval; j++) // MOVE THIS CODE IN A SETUP FUNCTION LATER!
-            {
-              error[j] = 0;               // initialising error values
-              outputSignal[j] = table[j]; // setting DAC values to data table stored in progmem
-            }
+            initOutput();
+            Serial.println("all values have been resetted");
             returnToMenu();
             break;
           default:
@@ -60,7 +57,8 @@ void getParamValuesFromSerial(boolean rich)
             else
             {
               Tsmic = (unsigned int)userInput2;
-              Timer3.attachInterrupt(changeIndex).start(Tsmic); // reattach interrupt with new value
+              Timer3.setPeriod(Tsmic);
+              Timer3.start();           // restart Timer since it seems to stop after setPeriod
               if (rich==true)
               {
                 Serial.print("sample rate changed to ");
@@ -77,18 +75,18 @@ void getParamValuesFromSerial(boolean rich)
       // SETTING ILC GAIN  
       case 3:
         menuState = 3;
-        if (rich==true) Serial.println("set value for control gain (times 1000, type 1 for 0.001)");
+        if (rich==true) Serial.println("set value for I control gain (times 1000, type 1 for 0.001)");
         switch(userInput2)
         {
           case 0:
             break; // no second input yet
           default:
-            ILCgain = (float)userInput2;
-            ILCgain = ILCgain / 1000;
+            Ki = (float)userInput2;
+            Ki = Ki / 1000;
             if (rich==true)
             {
-              Serial.print("ILC gain changed to ");
-              Serial.print(ILCgain,3);
+              Serial.print("Ki changed to ");
+              Serial.print(Ki,3);
               Serial.print("\n");
             }
             userInput2 = 0;
@@ -96,10 +94,31 @@ void getParamValuesFromSerial(boolean rich)
             break;
         }
         break;
-
-      // SETTING PHASE LEAD  
+    
       case 4:
         menuState = 4;
+        if (rich==true) Serial.println("set value for P control gain (times 1000, type 1 for 0.001)");
+        switch(userInput2)
+        {
+          case 0:
+            break; // no second input yet
+          default:
+            Kp = (float)userInput2;
+            Kp = Kp / 1000;
+            if (rich==true)
+            {
+              Serial.print("Kp changed to ");
+              Serial.print(Kp,3);
+              Serial.print("\n");
+            }
+            userInput2 = 0;
+            returnToMenu();
+            break;
+        }
+        break;
+      // SETTING PHASE LEAD  
+      case 5:
+        menuState = 5;
         if (rich==true) Serial.println("set value for PhaseLead of ILC");
         switch(userInput2)
         {
@@ -124,13 +143,13 @@ void getParamValuesFromSerial(boolean rich)
         if (rich==true) 
         { 
           Serial.println("invalid input in menu");
-          Serial.print(" \
-            \n usage: \
-            \n 1: Start / Stop / Reset \
-            \n 2: set sample rate \
-            \n 3: set ILC gain \
-            \n 4: set PhaseLead (digital LowPass equivalent) \n \
-            ");
+          Serial.print("\nusage:");
+          Serial.print("\n 1: Start / Stop / Reset");
+          Serial.print("\n 2: set sample rate - Tsmic = "); Serial.print(Tsmic);
+          Serial.print("\n 3: set ILC I gain - Ki = "); Serial.print(Ki,3);
+          Serial.print("\n 4: set ILC p gain - Kp = "); Serial.print(Kp,3);
+          Serial.print("\n 5: set PhaseLead (digital LowPass equivalent) - PhaseLead = "); Serial.print(PhaseLead);
+          Serial.print("\n");
         }
         break;
     } 
