@@ -30,12 +30,7 @@ void getParamValuesFromSerial(boolean rich)
           case 3:
             Timer3.stop();
             if (rich==true) Serial.println("reseting Experiment...");
-            for (int j = 0; j<Nval; j++)  // MOVE THIS CODE IN A SETUP FUNCTION LATER!
-            {
-              error[j] = 0;               // initialising error values
-              errorSum[j] = 0;            // resetting I sum
-              outputSignal[j] = table[j]; // setting DAC values to data table stored in progmem
-            }
+            initOutput();
             Serial.println("all values have been resetted");
             returnToMenu();
             break;
@@ -63,6 +58,7 @@ void getParamValuesFromSerial(boolean rich)
             {
               Tsmic = (unsigned int)userInput2;
               Timer3.setPeriod(Tsmic);
+              Timer3.start();           // restart Timer since it seems to stop after setPeriod
               if (rich==true)
               {
                 Serial.print("sample rate changed to ");

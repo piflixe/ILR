@@ -16,7 +16,6 @@ void setup() {
   // configuring PINs
   pinMode(PIN_ADC, INPUT);
   pinMode(PIN_DAC, OUTPUT);
-  analogWrite(PIN_DAC, 4094/2);
   pinMode(PIN_HARDWAREDEBUG, OUTPUT);
   digitalWrite(PIN_HARDWAREDEBUG, LOW);
   
@@ -24,27 +23,23 @@ void setup() {
   // initialise variables
 
   // initialise error and outputSignal 
-  for (int j = 0; j < Nval; j++)
-  {
-    error[j] = table[j];                     // setting ADC and error values to 0
-    errorSum[j] = 0;
-    outputSignal[j] = table[j];       // setting DAC values to data table stored in progmem
-    //pgm_read_word(&table[j]);
-
-    // printing outputSignal on Serial Console for debugging
-    DEBUGPRINT(outputSignal[j]);
-  }
-
-/* OLD STUFF FROM EARLIER VERSION (MAYBE DELETE LATER?)
-  for (int j = 0; j < Nsmooth; j++)
-  {
-    SmoothingWeight[j] = 1;
-    if(Nsmooth>6)  // apply linear window
-    {
-      if ( (j==0) || (j==Nsmooth-1) ) SmoothingWeight[j] = 0.5;
-    }
-  }
-*/
+  initOutput();
 
   if(debug==true) delay(1000);
 }
+
+void initOutput()
+{
+  for (int j = 0; j<Nval; j++)  // MOVE THIS CODE IN A SETUP FUNCTION LATER!
+  {
+    error[j] = 0;               // initialising error values
+    errorSum[j] = 0;            // resetting I sum
+    outputSignal[j] = table[j]; // setting DAC values to data table
+                                // use pgm_read_word(&table[j]) if table is stored in PROGMEN
+    analogWrite(PIN_DAC, 2048); // Write mean value to DAC so that physics can settle
+
+    // printing outputSignal on Serial Console for debugging
+    DEBUGPRINT(outputSignal[j]);
+  }  
+}
+
