@@ -2,9 +2,7 @@
 #define _Funktionswerte_h_
 
 const unsigned int Nval = 133; // number of entries in outputSignal
-unsigned int Tsmic = 50; // sampling rate [micro s]
-const unsigned int Tmic = 6666.67; // length of one period in outputSignal [micro s]
-
+float sampleFreq = 20000; // sampling frequency [Hz]
 const unsigned int table[] = {
 2048,2066,2083,2101,2118,2135,2152,2169,2185,2202,2217,2233,2248,2263,2277, 
 2290,2303,2316,2328,2339,2350,2360,2369,2377,2385,2392,2399,2404,2409,2413, 
