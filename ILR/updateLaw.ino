@@ -22,7 +22,7 @@ float updateLaw(unsigned int i)
   errorSum[i] = errorSum[i] + smoothedError;
 
   // now comes PI style update law
-  newOutputSignal = 2048 + Kp * (float)smoothedError + Ki * (float)errorSum[i];
+  newOutputSignal = 2048.0 + Kp * (float)smoothedError + Ki * (float)errorSum[i];
 
   if (newOutputSignal > 4095) // Signal runs into upper limit of DAC
   {
