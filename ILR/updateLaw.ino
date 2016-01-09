@@ -27,12 +27,14 @@ float updateLaw(unsigned int i)
   if (newOutputSignal > 4095) // Signal runs into upper limit of DAC
   {
     newOutputSignal = 4095;  
-    DEBUGPRINT("Signal on upper limit of DAC"); 
+    // DEBUGPRINT("Signal on upper limit of DAC");
+    digitalWrite(PIN_DAC_OVERRANGE, HIGH); 
   }
   if (newOutputSignal < 0)
   {
     newOutputSignal = 0;      // Signal runs into lower limit of DAC
-    DEBUGPRINT("Sinal on lower limit of DAC");
+    // DEBUGPRINT("Sinal on lower limit of DAC");
+    digitalWrite(PIN_DAC_OVERRANGE, HIGH);
   }
     
   return newOutputSignal;

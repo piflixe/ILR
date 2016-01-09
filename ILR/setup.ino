@@ -18,6 +18,10 @@ void setup() {
   pinMode(PIN_DAC, OUTPUT);
   pinMode(PIN_HARDWAREDEBUG, OUTPUT);
   digitalWrite(PIN_HARDWAREDEBUG, LOW);
+  pinMode(PIN_ADC_OVERRANGE, OUTPUT);
+  digitalWrite(PIN_ADC_OVERRANGE, LOW);
+  pinMode(PIN_DAC_OVERRANGE, OUTPUT);
+  digitalWrite(PIN_DAC_OVERRANGE, LOW);
   
   DEBUGPRINT("gelesene Werte:")
   // initialise variables

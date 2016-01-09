@@ -21,7 +21,9 @@
 // for PINs
 const unsigned int PIN_ADC = A0;
 const unsigned int PIN_DAC = DAC1;
-const unsigned int PIN_HARDWAREDEBUG = 53;
+const unsigned int PIN_HARDWAREDEBUG = 22;
+const unsigned int PIN_ADC_OVERRANGE = 52;
+const unsigned int PIN_DAC_OVERRANGE = 53;
 
 // DECLARING VARIABLES -----------------------------------------
 // core ILC
@@ -47,9 +49,17 @@ int menuState = 0;
 unsigned int badness = 0;                // sum of all quadratic errors for measuring overall control performance (debug only)
 const boolean debug = false;             // debugging with Serial Console (works only for very high Tsmic -> low frequency)
 const boolean hardwareDebug = false;     // debugging with measuring certain timings via digital i/o PINs
+unsigned long slowEventTime = 0;
 
 void loop() {
   getParamValuesFromSerial(true);        // use with true for verbose output
+
+  if ((millis() - slowEventTime) > 1000)
+  {
+    slowEventTime = millis();
+    digitalWrite(PIN_DAC_OVERRANGE, LOW);
+    digitalWrite(PIN_ADC_OVERRANGE, LOW);
+  }
 }
 
 
