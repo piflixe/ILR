@@ -1,0 +1,6 @@
+This schematic was created using KiCad V4.0.2. KiCad is open source software and can be downloaded from
+http://kicad-pcb.org/
+
+The Arduino Due board was created as a new symbol within KiCad and is not part of the common KiCad library. 
+Please see my KiCad repository for the library files
+https://github.com/piflixe/KiCad-libraries
