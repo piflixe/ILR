@@ -31,7 +31,7 @@ void getParamValuesFromSerial(boolean rich)
             Timer3.stop();
             if (rich==true) Serial.println("reseting Experiment...");
             initOutput();
-            Serial.println("all values have been resetted");
+            if (rich==true) Serial.println("all values have been resetted");
             returnToMenu();
             break;
           default:
@@ -44,7 +44,7 @@ void getParamValuesFromSerial(boolean rich)
       // SETTING SAMPLE FREQUENCY  
       case 2: // set value for sampleFreq
         menuState = 2;
-        if (rich==true) {Serial.println("set value for sample Intervall");}
+        if (rich==true) {Serial.println("set value for sample frequency");}
         switch (userInput2)
         {
           case 0:
@@ -63,7 +63,7 @@ void getParamValuesFromSerial(boolean rich)
               {
                 Serial.print("sample frequency changed to ");
                 Serial.print(sampleFreq);
-                Serial.print(" micro seconds\n");
+                Serial.print(" hertz\n");
               }
             }
             returnToMenu();
@@ -82,7 +82,10 @@ void getParamValuesFromSerial(boolean rich)
             break; // no second input yet
           default:
             Ki = (float)userInput2;
-            Ki = Ki / 1000;
+            if (Ki != 0)
+            {
+              Ki = Ki / 1000;
+            }
             if (rich==true)
             {
               Serial.print("Ki changed to ");
@@ -104,7 +107,10 @@ void getParamValuesFromSerial(boolean rich)
             break; // no second input yet
           default:
             Kp = (float)userInput2;
-            Kp = Kp / 1000;
+            if (Kp != 0)
+            {
+              Kp = Kp / 1000;
+            }
             if (rich==true)
             {
               Serial.print("Kp changed to ");
@@ -169,6 +175,7 @@ void getParamValuesFromSerial(boolean rich)
           Serial.print("\n 4: set ILC p gain - Kp = "); Serial.print(Kp,3);
           Serial.print("\n 5: set PhaseLead  - PhaseLead = "); Serial.print(PhaseLead);
           Serial.print("\n 6: set moving average filter width (Lowpass) - Nsmooth = "); Serial.print(Nsmooth);
+          Serial.print("\n\n actual sample rate is: "); Serial.print(Timer3.getFrequency());
           Serial.print("\n");
         }
         break;
