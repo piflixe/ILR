@@ -9,7 +9,7 @@ void setup() {
   
   // using Serial Interface for debugging
   Serial.begin(115200);  
-  Serial.println("Arduino is up and running");
+  // Serial.println("Arduino is up and running");
   inputString1.reserve(3); // reserve some bytes for the inputString
   inputString2.reserve(3); //
 

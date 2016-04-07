@@ -11,6 +11,6 @@ unsigned int indexShift(unsigned int i)
     { shiftedIndex = i + PhaseLead; }
   else                                // no rollover needed 
     { shiftedIndex = i - (Nval - PhaseLead); }
-    
+        
   return shiftedIndex;
 }

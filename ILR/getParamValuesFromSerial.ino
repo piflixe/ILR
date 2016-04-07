@@ -82,7 +82,10 @@ void getParamValuesFromSerial(boolean rich)
             break; // no second input yet
           default:
             Ki = (float)userInput2;
-            if (Ki != 0)
+            if (Ki == 99)
+            {
+              Ki = 0;
+            }
             {
               Ki = Ki / 1000;
             }
@@ -107,7 +110,10 @@ void getParamValuesFromSerial(boolean rich)
             break; // no second input yet
           default:
             Kp = (float)userInput2;
-            if (Kp != 0)
+            if (Kp == 99)
+            {
+              Kp = 0;
+            }
             {
               Kp = Kp / 1000;
             }
@@ -175,7 +181,7 @@ void getParamValuesFromSerial(boolean rich)
           Serial.print("\n 4: set ILC p gain - Kp = "); Serial.print(Kp,3);
           Serial.print("\n 5: set PhaseLead  - PhaseLead = "); Serial.print(PhaseLead);
           Serial.print("\n 6: set moving average filter width (Lowpass) - Nsmooth = "); Serial.print(Nsmooth);
-          Serial.print("\n\n actual sample rate is: "); Serial.print(Timer3.getFrequency());
+          Serial.print("\n\n actual sample rate is: "); Serial.print(Timer3.getFrequency()); Serial.print("   actual frequency is: "); Serial.print(Timer3.getFrequency()/Nval);
           Serial.print("\n");
         }
         break;

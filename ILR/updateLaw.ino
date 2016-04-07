@@ -3,6 +3,7 @@ float updateLaw(unsigned int i)
  * ILC update law 
  * derived from Longman:
  * Iterative learning control and repitive control for engineering practice
+ * extended to form a PI-style update law (coefficients Kp and Ki)
  * 
  * input: current time index
  * returns: computed output signal
