@@ -1,0 +1,1613 @@
+desc: (none)
+cmd: ./FP_MA
+time_unit: i
+#-----------
+snapshot=0
+#-----------
+time=0
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=1
+#-----------
+time=6835516
+mem_heap_B=115753
+mem_heap_extra_B=6423
+mem_stacks_B=0
+heap_tree=peak
+n10: 115753 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 65280 0x44486E3: __gconv_open (gconv_open.c:284)
+  n1: 65280 0x44480C0: iconv_open (iconv_open.c:72)
+   n2: 65280 0x4209274: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+    n1: 32640 0x4209DBB: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+     n1: 32640 0x4202819: QTextCodec::fromUnicode(QString const&) const (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+      n1: 32640 0x4103BAE: QString::toLocal8Bit() const (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+       n1: 32640 0x41498B8: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+        n1: 32640 0x4149E39: QFile::encodeName(QString const&) (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+         n1: 32640 0x41BBE32: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+          n1: 32640 0x41B4652: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+           n1: 32640 0x411768E: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+            n1: 32640 0x40D8CD2: QLocalePrivate::updateSystemPrivate() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+             n0: 32640 0x40D8F82: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+    n1: 32640 0x420A575: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+     n1: 32640 0x41044D6: QString::fromLocal8Bit(char const*, int) (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+      n1: 32640 0x41BB253: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+       n1: 32640 0x41BB646: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+        n1: 32640 0x41B4299: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+         n1: 32640 0x4117808: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+          n1: 32640 0x40D8CD2: QLocalePrivate::updateSystemPrivate() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+           n0: 32640 0x40D8F82: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+ n3: 12454 0x50D4BCE: uprv_malloc_48 (in /usr/lib/libicuuc.so.48.1.1)
+  n1: 6144 0x4FA0E68: ??? (in /usr/lib/libicui18n.so.48.1.1)
+   n1: 6144 0x4FA1ADD: ??? (in /usr/lib/libicui18n.so.48.1.1)
+    n0: 6144 0x4789116: ???
+  n1: 4572 0x50DA6C9: ??? (in /usr/lib/libicuuc.so.48.1.1)
+   n3: 4572 0x50DAB65: ??? (in /usr/lib/libicuuc.so.48.1.1)
+    n1: 1524 0x5107F72: ??? (in /usr/lib/libicuuc.so.48.1.1)
+     n0: 1524 0x4789116: ???
+    n1: 1524 0x51175CA: ??? (in /usr/lib/libicuuc.so.48.1.1)
+     n1: 1524 0x511701F: icu_48::Locale::getDefault() (in /usr/lib/libicuuc.so.48.1.1)
+      n1: 1524 0x5117A82: ??? (in /usr/lib/libicuuc.so.48.1.1)
+       n1: 1524 0x5114962: uloc_getDefault_48 (in /usr/lib/libicuuc.so.48.1.1)
+        n1: 1524 0x510786D: ??? (in /usr/lib/libicuuc.so.48.1.1)
+         n1: 1524 0x5107AAA: ??? (in /usr/lib/libicuuc.so.48.1.1)
+          n1: 1524 0x5108C4B: ures_open_48 (in /usr/lib/libicuuc.so.48.1.1)
+           n0: 1524 0x4789116: ???
+    n1: 1524 0x50D58F6: ??? (in /usr/lib/libicuuc.so.48.1.1)
+     n0: 1524 0x519D1EB: ??? (in /usr/lib/libicuuc.so.48.1.1)
+  n0: 1553 in 10 places, all below massif's threshold (01.00%)
+ n0: 9478 in 107 places, all below massif's threshold (01.00%)
+ n1: 9192 0x4457B24: _nl_load_domain (loadmsgcat.c:1052)
+  n1: 9192 0x4457291: _nl_find_domain (finddomain.c:156)
+   n1: 9192 0x44569C8: __dcigettext (dcigettext.c:642)
+    n1: 9192 0x4455881: dcgettext (dcgettext.c:53)
+     n1: 9192 0x460A136: dlerror (dlerror.c:95)
+      n1: 9192 0x41BB233: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+       n1: 9192 0x41BB646: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+        n1: 9192 0x41B4299: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+         n1: 9192 0x4117808: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+          n1: 9192 0x40D8CD2: QLocalePrivate::updateSystemPrivate() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+           n0: 9192 0x40D8F82: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+ n2: 4976 0x462C2E0: ??? (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+  n3: 3856 0x46786FE: g_slice_alloc (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+   n1: 1512 0x4678794: g_slice_alloc0 (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+    n1: 1512 0x4681C62: g_thread_self (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+     n1: 1512 0x465D175: g_main_context_acquire (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+      n1: 1512 0x465D244: g_main_context_push_thread_default (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+       n1: 1512 0x41FD1D1: QEventDispatcherGlibPrivate::QEventDispatcherGlibPrivate(_GMainContext*) (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+        n1: 1512 0x41FD4EA: QEventDispatcherGlib::QEventDispatcherGlib(QObject*) (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+         n1: 1512 0x41CA481: QCoreApplicationPrivate::createEventDispatcher() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+          n1: 1512 0x41CDE97: QCoreApplication::init() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+           n0: 1512 0x44474D1: (below main) (libc-start.c:226)
+   n1: 1240 0x4630168: g_ptr_array_sized_new (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+    n1: 1240 0x46301C9: g_ptr_array_new (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+     n1: 1240 0x465BE05: g_main_context_new (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+      n1: 1240 0x465BEEB: g_main_context_default (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+       n1: 1240 0x41FD3FB: QEventDispatcherGlibPrivate::QEventDispatcherGlibPrivate(_GMainContext*) (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+        n1: 1240 0x41FD4EA: QEventDispatcherGlib::QEventDispatcherGlib(QObject*) (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+         n1: 1240 0x41CA481: QCoreApplicationPrivate::createEventDispatcher() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+          n1: 1240 0x41CDE97: QCoreApplication::init() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+           n0: 1240 0x44474D1: (below main) (libc-start.c:226)
+   n0: 1104 in 2 places, all below massif's threshold (01.00%)
+  n0: 1120 in 1 place, below massif's threshold (01.00%)
+ n1: 4108 0x80499E9: ILR::ILR(QObject*) (in /home/rf/privat/FP_MA/FP_MA-build-desktop-Qt_aus_PATH_Release/FP_MA)
+  n0: 4108 0x44474D1: (below main) (libc-start.c:226)
+ n1: 3944 0x4663751: ??? (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+  n3: 3944 0x4663E69: g_malloc0 (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+   n1: 2040 0x462C213: ??? (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+    n1: 2040 0x4678443: g_slice_alloc (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+     n1: 2040 0x46790C9: g_slist_prepend (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+      n1: 2040 0x468184B: g_once_init_enter (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+       n1: 2040 0x465BE74: g_main_context_new (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+        n1: 2040 0x465BEEB: g_main_context_default (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+         n1: 2040 0x41FD3FB: QEventDispatcherGlibPrivate::QEventDispatcherGlibPrivate(_GMainContext*) (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+          n1: 2040 0x41FD4EA: QEventDispatcherGlib::QEventDispatcherGlib(QObject*) (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+           n1: 2040 0x41CA481: QCoreApplicationPrivate::createEventDispatcher() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+            n1: 2040 0x41CDE97: QCoreApplication::init() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+             n0: 2040 0x44474D1: (below main) (libc-start.c:226)
+   n1: 1524 0x4664131: g_malloc0_n (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+    n0: 1524 in 3 places, all below massif's threshold (01.00%)
+   n0: 380 in 2 places, all below massif's threshold (01.00%)
+ n1: 2553 0x400AE1E: _dl_new_object (dl-object.c:77)
+  n1: 2553 0x4006446: _dl_map_object_from_fd (dl-load.c:1051)
+   n2: 2553 0x40083AE: _dl_map_object (dl-load.c:2568)
+    n1: 1289 0x4012D6B: dl_open_worker (dl-open.c:225)
+     n1: 1289 0x400ECCD: _dl_catch_error (dl-error.c:178)
+      n0: 1289 in 2 places, all below massif's threshold (01.00%)
+    n1: 1264 0x400D176: openaux (dl-deps.c:65)
+     n1: 1264 0x400ECCD: _dl_catch_error (dl-error.c:178)
+      n1: 1264 0x4012DC8: dl_open_worker (dl-open.c:262)
+       n1: 1264 0x400ECCD: _dl_catch_error (dl-error.c:178)
+        n1: 1264 0x4609BE7: dlopen_doit (dlopen.c:67)
+         n0: 1264 0x400ECCD: _dl_catch_error (dl-error.c:178)
+ n1: 2048 0x4458DFF: read_alias_file (localealias.c:309)
+  n1: 2048 0x445903B: _nl_expand_alias (localealias.c:189)
+   n1: 2048 0x4457111: _nl_find_domain (finddomain.c:120)
+    n1: 2048 0x44569C8: __dcigettext (dcigettext.c:642)
+     n1: 2048 0x4455881: dcgettext (dcgettext.c:53)
+      n1: 2048 0x460A136: dlerror (dlerror.c:95)
+       n1: 2048 0x41BB233: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+        n1: 2048 0x41BB646: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+         n1: 2048 0x41B4299: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+          n1: 2048 0x4117808: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+           n1: 2048 0x40D8CD2: QLocalePrivate::updateSystemPrivate() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+            n0: 2048 0x40D8F82: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+ n1: 1720 0x4452B17: _nl_intern_locale_data (loadlocale.c:96)
+  n1: 1720 0x44525E3: _nl_find_locale (findlocale.c:155)
+   n1: 1720 0x445211A: setlocale (setlocale.c:312)
+    n1: 1720 0x41CDE25: QCoreApplication::init() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+     n0: 1720 0x44474D1: (below main) (libc-start.c:226)
+#-----------
+snapshot=2
+#-----------
+time=338520385
+mem_heap_B=115455
+mem_heap_extra_B=6393
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=3
+#-----------
+time=660464748
+mem_heap_B=115455
+mem_heap_extra_B=6393
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=4
+#-----------
+time=960994540
+mem_heap_B=115455
+mem_heap_extra_B=6393
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=5
+#-----------
+time=1416290016
+mem_heap_B=115455
+mem_heap_extra_B=6393
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=6
+#-----------
+time=1673286486
+mem_heap_B=115455
+mem_heap_extra_B=6393
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=7
+#-----------
+time=2027472022
+mem_heap_B=115455
+mem_heap_extra_B=6393
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=8
+#-----------
+time=2304832780
+mem_heap_B=115455
+mem_heap_extra_B=6393
+mem_stacks_B=0
+heap_tree=detailed
+n10: 115455 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 65280 0x44486E3: __gconv_open (gconv_open.c:284)
+  n1: 65280 0x44480C0: iconv_open (iconv_open.c:72)
+   n2: 65280 0x4209274: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+    n1: 32640 0x4209DBB: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+     n1: 32640 0x4202819: QTextCodec::fromUnicode(QString const&) const (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+      n1: 32640 0x4103BAE: QString::toLocal8Bit() const (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+       n1: 32640 0x41498B8: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+        n1: 32640 0x4149E39: QFile::encodeName(QString const&) (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+         n1: 32640 0x41BBE32: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+          n1: 32640 0x41B4652: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+           n1: 32640 0x411768E: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+            n1: 32640 0x40D8CD2: QLocalePrivate::updateSystemPrivate() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+             n0: 32640 0x40D8F82: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+    n1: 32640 0x420A575: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+     n1: 32640 0x41044D6: QString::fromLocal8Bit(char const*, int) (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+      n1: 32640 0x41BB253: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+       n1: 32640 0x41BB646: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+        n1: 32640 0x41B4299: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+         n1: 32640 0x4117808: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+          n1: 32640 0x40D8CD2: QLocalePrivate::updateSystemPrivate() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+           n0: 32640 0x40D8F82: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+ n3: 12454 0x50D4BCE: uprv_malloc_48 (in /usr/lib/libicuuc.so.48.1.1)
+  n1: 6144 0x4FA0E68: ??? (in /usr/lib/libicui18n.so.48.1.1)
+   n1: 6144 0x4FA1ADD: ??? (in /usr/lib/libicui18n.so.48.1.1)
+    n0: 6144 0x4789116: ???
+  n1: 4572 0x50DA6C9: ??? (in /usr/lib/libicuuc.so.48.1.1)
+   n3: 4572 0x50DAB65: ??? (in /usr/lib/libicuuc.so.48.1.1)
+    n1: 1524 0x5107F72: ??? (in /usr/lib/libicuuc.so.48.1.1)
+     n0: 1524 0x4789116: ???
+    n1: 1524 0x51175CA: ??? (in /usr/lib/libicuuc.so.48.1.1)
+     n1: 1524 0x511701F: icu_48::Locale::getDefault() (in /usr/lib/libicuuc.so.48.1.1)
+      n1: 1524 0x5117A82: ??? (in /usr/lib/libicuuc.so.48.1.1)
+       n1: 1524 0x5114962: uloc_getDefault_48 (in /usr/lib/libicuuc.so.48.1.1)
+        n1: 1524 0x510786D: ??? (in /usr/lib/libicuuc.so.48.1.1)
+         n1: 1524 0x5107AAA: ??? (in /usr/lib/libicuuc.so.48.1.1)
+          n1: 1524 0x5108C4B: ures_open_48 (in /usr/lib/libicuuc.so.48.1.1)
+           n0: 1524 0x4789116: ???
+    n1: 1524 0x50D58F6: ??? (in /usr/lib/libicuuc.so.48.1.1)
+     n0: 1524 0x519D1EB: ??? (in /usr/lib/libicuuc.so.48.1.1)
+  n0: 1553 in 10 places, all below massif's threshold (01.00%)
+ n1: 9192 0x4457B24: _nl_load_domain (loadmsgcat.c:1052)
+  n1: 9192 0x4457291: _nl_find_domain (finddomain.c:156)
+   n1: 9192 0x44569C8: __dcigettext (dcigettext.c:642)
+    n1: 9192 0x4455881: dcgettext (dcgettext.c:53)
+     n1: 9192 0x460A136: dlerror (dlerror.c:95)
+      n1: 9192 0x41BB233: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+       n1: 9192 0x41BB646: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+        n1: 9192 0x41B4299: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+         n1: 9192 0x4117808: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+          n1: 9192 0x40D8CD2: QLocalePrivate::updateSystemPrivate() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+           n0: 9192 0x40D8F82: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+ n0: 9180 in 119 places, all below massif's threshold (01.00%)
+ n2: 4976 0x462C2E0: ??? (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+  n3: 3856 0x46786FE: g_slice_alloc (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+   n1: 1512 0x4678794: g_slice_alloc0 (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+    n1: 1512 0x4681C62: g_thread_self (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+     n1: 1512 0x465D175: g_main_context_acquire (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+      n1: 1512 0x465D244: g_main_context_push_thread_default (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+       n1: 1512 0x41FD1D1: QEventDispatcherGlibPrivate::QEventDispatcherGlibPrivate(_GMainContext*) (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+        n1: 1512 0x41FD4EA: QEventDispatcherGlib::QEventDispatcherGlib(QObject*) (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+         n1: 1512 0x41CA481: QCoreApplicationPrivate::createEventDispatcher() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+          n1: 1512 0x41CDE97: QCoreApplication::init() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+           n0: 1512 0x44474D1: (below main) (libc-start.c:226)
+   n1: 1240 0x4630168: g_ptr_array_sized_new (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+    n1: 1240 0x46301C9: g_ptr_array_new (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+     n1: 1240 0x465BE05: g_main_context_new (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+      n1: 1240 0x465BEEB: g_main_context_default (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+       n1: 1240 0x41FD3FB: QEventDispatcherGlibPrivate::QEventDispatcherGlibPrivate(_GMainContext*) (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+        n1: 1240 0x41FD4EA: QEventDispatcherGlib::QEventDispatcherGlib(QObject*) (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+         n1: 1240 0x41CA481: QCoreApplicationPrivate::createEventDispatcher() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+          n1: 1240 0x41CDE97: QCoreApplication::init() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+           n0: 1240 0x44474D1: (below main) (libc-start.c:226)
+   n0: 1104 in 2 places, all below massif's threshold (01.00%)
+  n0: 1120 in 1 place, below massif's threshold (01.00%)
+ n1: 4108 0x80499E9: ILR::ILR(QObject*) (in /home/rf/privat/FP_MA/FP_MA-build-desktop-Qt_aus_PATH_Release/FP_MA)
+  n0: 4108 0x44474D1: (below main) (libc-start.c:226)
+ n1: 3944 0x4663751: ??? (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+  n3: 3944 0x4663E69: g_malloc0 (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+   n1: 2040 0x462C213: ??? (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+    n1: 2040 0x4678443: g_slice_alloc (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+     n1: 2040 0x46790C9: g_slist_prepend (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+      n1: 2040 0x468184B: g_once_init_enter (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+       n1: 2040 0x465BE74: g_main_context_new (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+        n1: 2040 0x465BEEB: g_main_context_default (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+         n1: 2040 0x41FD3FB: QEventDispatcherGlibPrivate::QEventDispatcherGlibPrivate(_GMainContext*) (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+          n1: 2040 0x41FD4EA: QEventDispatcherGlib::QEventDispatcherGlib(QObject*) (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+           n1: 2040 0x41CA481: QCoreApplicationPrivate::createEventDispatcher() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+            n1: 2040 0x41CDE97: QCoreApplication::init() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+             n0: 2040 0x44474D1: (below main) (libc-start.c:226)
+   n1: 1524 0x4664131: g_malloc0_n (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+    n0: 1524 in 3 places, all below massif's threshold (01.00%)
+   n0: 380 in 2 places, all below massif's threshold (01.00%)
+ n1: 2553 0x400AE1E: _dl_new_object (dl-object.c:77)
+  n1: 2553 0x4006446: _dl_map_object_from_fd (dl-load.c:1051)
+   n2: 2553 0x40083AE: _dl_map_object (dl-load.c:2568)
+    n1: 1289 0x4012D6B: dl_open_worker (dl-open.c:225)
+     n1: 1289 0x400ECCD: _dl_catch_error (dl-error.c:178)
+      n0: 1289 in 2 places, all below massif's threshold (01.00%)
+    n1: 1264 0x400D176: openaux (dl-deps.c:65)
+     n1: 1264 0x400ECCD: _dl_catch_error (dl-error.c:178)
+      n1: 1264 0x4012DC8: dl_open_worker (dl-open.c:262)
+       n1: 1264 0x400ECCD: _dl_catch_error (dl-error.c:178)
+        n1: 1264 0x4609BE7: dlopen_doit (dlopen.c:67)
+         n0: 1264 0x400ECCD: _dl_catch_error (dl-error.c:178)
+ n1: 2048 0x4458DFF: read_alias_file (localealias.c:309)
+  n1: 2048 0x445903B: _nl_expand_alias (localealias.c:189)
+   n1: 2048 0x4457111: _nl_find_domain (finddomain.c:120)
+    n1: 2048 0x44569C8: __dcigettext (dcigettext.c:642)
+     n1: 2048 0x4455881: dcgettext (dcgettext.c:53)
+      n1: 2048 0x460A136: dlerror (dlerror.c:95)
+       n1: 2048 0x41BB233: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+        n1: 2048 0x41BB646: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+         n1: 2048 0x41B4299: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+          n1: 2048 0x4117808: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+           n1: 2048 0x40D8CD2: QLocalePrivate::updateSystemPrivate() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+            n0: 2048 0x40D8F82: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+ n1: 1720 0x4452B17: _nl_intern_locale_data (loadlocale.c:96)
+  n1: 1720 0x44525E3: _nl_find_locale (findlocale.c:155)
+   n1: 1720 0x445211A: setlocale (setlocale.c:312)
+    n1: 1720 0x41CDE25: QCoreApplication::init() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+     n0: 1720 0x44474D1: (below main) (libc-start.c:226)
+#-----------
+snapshot=9
+#-----------
+time=2734314432
+mem_heap_B=115455
+mem_heap_extra_B=6393
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=10
+#-----------
+time=2962704777
+mem_heap_B=115455
+mem_heap_extra_B=6393
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=11
+#-----------
+time=3296716353
+mem_heap_B=115455
+mem_heap_extra_B=6393
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=12
+#-----------
+time=3550652678
+mem_heap_B=115455
+mem_heap_extra_B=6393
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=13
+#-----------
+time=3918331015
+mem_heap_B=115455
+mem_heap_extra_B=6393
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=14
+#-----------
+time=4366032681
+mem_heap_B=115455
+mem_heap_extra_B=6393
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=15
+#-----------
+time=4614462980
+mem_heap_B=115455
+mem_heap_extra_B=6393
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=16
+#-----------
+time=4962643694
+mem_heap_B=115455
+mem_heap_extra_B=6393
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=17
+#-----------
+time=5408514748
+mem_heap_B=115455
+mem_heap_extra_B=6393
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=18
+#-----------
+time=5705046703
+mem_heap_B=115455
+mem_heap_extra_B=6393
+mem_stacks_B=0
+heap_tree=detailed
+n10: 115455 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 65280 0x44486E3: __gconv_open (gconv_open.c:284)
+  n1: 65280 0x44480C0: iconv_open (iconv_open.c:72)
+   n2: 65280 0x4209274: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+    n1: 32640 0x4209DBB: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+     n1: 32640 0x4202819: QTextCodec::fromUnicode(QString const&) const (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+      n1: 32640 0x4103BAE: QString::toLocal8Bit() const (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+       n1: 32640 0x41498B8: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+        n1: 32640 0x4149E39: QFile::encodeName(QString const&) (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+         n1: 32640 0x41BBE32: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+          n1: 32640 0x41B4652: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+           n1: 32640 0x411768E: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+            n1: 32640 0x40D8CD2: QLocalePrivate::updateSystemPrivate() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+             n0: 32640 0x40D8F82: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+    n1: 32640 0x420A575: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+     n1: 32640 0x41044D6: QString::fromLocal8Bit(char const*, int) (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+      n1: 32640 0x41BB253: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+       n1: 32640 0x41BB646: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+        n1: 32640 0x41B4299: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+         n1: 32640 0x4117808: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+          n1: 32640 0x40D8CD2: QLocalePrivate::updateSystemPrivate() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+           n0: 32640 0x40D8F82: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+ n3: 12454 0x50D4BCE: uprv_malloc_48 (in /usr/lib/libicuuc.so.48.1.1)
+  n1: 6144 0x4FA0E68: ??? (in /usr/lib/libicui18n.so.48.1.1)
+   n1: 6144 0x4FA1ADD: ??? (in /usr/lib/libicui18n.so.48.1.1)
+    n0: 6144 0x4789116: ???
+  n1: 4572 0x50DA6C9: ??? (in /usr/lib/libicuuc.so.48.1.1)
+   n3: 4572 0x50DAB65: ??? (in /usr/lib/libicuuc.so.48.1.1)
+    n1: 1524 0x5107F72: ??? (in /usr/lib/libicuuc.so.48.1.1)
+     n0: 1524 0x4789116: ???
+    n1: 1524 0x51175CA: ??? (in /usr/lib/libicuuc.so.48.1.1)
+     n1: 1524 0x511701F: icu_48::Locale::getDefault() (in /usr/lib/libicuuc.so.48.1.1)
+      n1: 1524 0x5117A82: ??? (in /usr/lib/libicuuc.so.48.1.1)
+       n1: 1524 0x5114962: uloc_getDefault_48 (in /usr/lib/libicuuc.so.48.1.1)
+        n1: 1524 0x510786D: ??? (in /usr/lib/libicuuc.so.48.1.1)
+         n1: 1524 0x5107AAA: ??? (in /usr/lib/libicuuc.so.48.1.1)
+          n1: 1524 0x5108C4B: ures_open_48 (in /usr/lib/libicuuc.so.48.1.1)
+           n0: 1524 0x4789116: ???
+    n1: 1524 0x50D58F6: ??? (in /usr/lib/libicuuc.so.48.1.1)
+     n0: 1524 0x519D1EB: ??? (in /usr/lib/libicuuc.so.48.1.1)
+  n0: 1553 in 10 places, all below massif's threshold (01.00%)
+ n1: 9192 0x4457B24: _nl_load_domain (loadmsgcat.c:1052)
+  n1: 9192 0x4457291: _nl_find_domain (finddomain.c:156)
+   n1: 9192 0x44569C8: __dcigettext (dcigettext.c:642)
+    n1: 9192 0x4455881: dcgettext (dcgettext.c:53)
+     n1: 9192 0x460A136: dlerror (dlerror.c:95)
+      n1: 9192 0x41BB233: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+       n1: 9192 0x41BB646: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+        n1: 9192 0x41B4299: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+         n1: 9192 0x4117808: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+          n1: 9192 0x40D8CD2: QLocalePrivate::updateSystemPrivate() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+           n0: 9192 0x40D8F82: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+ n0: 9180 in 119 places, all below massif's threshold (01.00%)
+ n2: 4976 0x462C2E0: ??? (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+  n3: 3856 0x46786FE: g_slice_alloc (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+   n1: 1512 0x4678794: g_slice_alloc0 (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+    n1: 1512 0x4681C62: g_thread_self (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+     n1: 1512 0x465D175: g_main_context_acquire (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+      n1: 1512 0x465D244: g_main_context_push_thread_default (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+       n1: 1512 0x41FD1D1: QEventDispatcherGlibPrivate::QEventDispatcherGlibPrivate(_GMainContext*) (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+        n1: 1512 0x41FD4EA: QEventDispatcherGlib::QEventDispatcherGlib(QObject*) (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+         n1: 1512 0x41CA481: QCoreApplicationPrivate::createEventDispatcher() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+          n1: 1512 0x41CDE97: QCoreApplication::init() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+           n0: 1512 0x44474D1: (below main) (libc-start.c:226)
+   n1: 1240 0x4630168: g_ptr_array_sized_new (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+    n1: 1240 0x46301C9: g_ptr_array_new (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+     n1: 1240 0x465BE05: g_main_context_new (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+      n1: 1240 0x465BEEB: g_main_context_default (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+       n1: 1240 0x41FD3FB: QEventDispatcherGlibPrivate::QEventDispatcherGlibPrivate(_GMainContext*) (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+        n1: 1240 0x41FD4EA: QEventDispatcherGlib::QEventDispatcherGlib(QObject*) (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+         n1: 1240 0x41CA481: QCoreApplicationPrivate::createEventDispatcher() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+          n1: 1240 0x41CDE97: QCoreApplication::init() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+           n0: 1240 0x44474D1: (below main) (libc-start.c:226)
+   n0: 1104 in 2 places, all below massif's threshold (01.00%)
+  n0: 1120 in 1 place, below massif's threshold (01.00%)
+ n1: 4108 0x80499E9: ILR::ILR(QObject*) (in /home/rf/privat/FP_MA/FP_MA-build-desktop-Qt_aus_PATH_Release/FP_MA)
+  n0: 4108 0x44474D1: (below main) (libc-start.c:226)
+ n1: 3944 0x4663751: ??? (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+  n3: 3944 0x4663E69: g_malloc0 (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+   n1: 2040 0x462C213: ??? (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+    n1: 2040 0x4678443: g_slice_alloc (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+     n1: 2040 0x46790C9: g_slist_prepend (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+      n1: 2040 0x468184B: g_once_init_enter (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+       n1: 2040 0x465BE74: g_main_context_new (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+        n1: 2040 0x465BEEB: g_main_context_default (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+         n1: 2040 0x41FD3FB: QEventDispatcherGlibPrivate::QEventDispatcherGlibPrivate(_GMainContext*) (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+          n1: 2040 0x41FD4EA: QEventDispatcherGlib::QEventDispatcherGlib(QObject*) (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+           n1: 2040 0x41CA481: QCoreApplicationPrivate::createEventDispatcher() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+            n1: 2040 0x41CDE97: QCoreApplication::init() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+             n0: 2040 0x44474D1: (below main) (libc-start.c:226)
+   n1: 1524 0x4664131: g_malloc0_n (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+    n0: 1524 in 3 places, all below massif's threshold (01.00%)
+   n0: 380 in 2 places, all below massif's threshold (01.00%)
+ n1: 2553 0x400AE1E: _dl_new_object (dl-object.c:77)
+  n1: 2553 0x4006446: _dl_map_object_from_fd (dl-load.c:1051)
+   n2: 2553 0x40083AE: _dl_map_object (dl-load.c:2568)
+    n1: 1289 0x4012D6B: dl_open_worker (dl-open.c:225)
+     n1: 1289 0x400ECCD: _dl_catch_error (dl-error.c:178)
+      n0: 1289 in 2 places, all below massif's threshold (01.00%)
+    n1: 1264 0x400D176: openaux (dl-deps.c:65)
+     n1: 1264 0x400ECCD: _dl_catch_error (dl-error.c:178)
+      n1: 1264 0x4012DC8: dl_open_worker (dl-open.c:262)
+       n1: 1264 0x400ECCD: _dl_catch_error (dl-error.c:178)
+        n1: 1264 0x4609BE7: dlopen_doit (dlopen.c:67)
+         n0: 1264 0x400ECCD: _dl_catch_error (dl-error.c:178)
+ n1: 2048 0x4458DFF: read_alias_file (localealias.c:309)
+  n1: 2048 0x445903B: _nl_expand_alias (localealias.c:189)
+   n1: 2048 0x4457111: _nl_find_domain (finddomain.c:120)
+    n1: 2048 0x44569C8: __dcigettext (dcigettext.c:642)
+     n1: 2048 0x4455881: dcgettext (dcgettext.c:53)
+      n1: 2048 0x460A136: dlerror (dlerror.c:95)
+       n1: 2048 0x41BB233: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+        n1: 2048 0x41BB646: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+         n1: 2048 0x41B4299: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+          n1: 2048 0x4117808: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+           n1: 2048 0x40D8CD2: QLocalePrivate::updateSystemPrivate() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+            n0: 2048 0x40D8F82: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+ n1: 1720 0x4452B17: _nl_intern_locale_data (loadlocale.c:96)
+  n1: 1720 0x44525E3: _nl_find_locale (findlocale.c:155)
+   n1: 1720 0x445211A: setlocale (setlocale.c:312)
+    n1: 1720 0x41CDE25: QCoreApplication::init() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+     n0: 1720 0x44474D1: (below main) (libc-start.c:226)
+#-----------
+snapshot=19
+#-----------
+time=6200564956
+mem_heap_B=115455
+mem_heap_extra_B=6393
+mem_stacks_B=0
+heap_tree=detailed
+n10: 115455 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 65280 0x44486E3: __gconv_open (gconv_open.c:284)
+  n1: 65280 0x44480C0: iconv_open (iconv_open.c:72)
+   n2: 65280 0x4209274: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+    n1: 32640 0x4209DBB: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+     n1: 32640 0x4202819: QTextCodec::fromUnicode(QString const&) const (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+      n1: 32640 0x4103BAE: QString::toLocal8Bit() const (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+       n1: 32640 0x41498B8: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+        n1: 32640 0x4149E39: QFile::encodeName(QString const&) (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+         n1: 32640 0x41BBE32: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+          n1: 32640 0x41B4652: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+           n1: 32640 0x411768E: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+            n1: 32640 0x40D8CD2: QLocalePrivate::updateSystemPrivate() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+             n0: 32640 0x40D8F82: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+    n1: 32640 0x420A575: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+     n1: 32640 0x41044D6: QString::fromLocal8Bit(char const*, int) (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+      n1: 32640 0x41BB253: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+       n1: 32640 0x41BB646: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+        n1: 32640 0x41B4299: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+         n1: 32640 0x4117808: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+          n1: 32640 0x40D8CD2: QLocalePrivate::updateSystemPrivate() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+           n0: 32640 0x40D8F82: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+ n3: 12454 0x50D4BCE: uprv_malloc_48 (in /usr/lib/libicuuc.so.48.1.1)
+  n1: 6144 0x4FA0E68: ??? (in /usr/lib/libicui18n.so.48.1.1)
+   n1: 6144 0x4FA1ADD: ??? (in /usr/lib/libicui18n.so.48.1.1)
+    n0: 6144 0x4789116: ???
+  n1: 4572 0x50DA6C9: ??? (in /usr/lib/libicuuc.so.48.1.1)
+   n3: 4572 0x50DAB65: ??? (in /usr/lib/libicuuc.so.48.1.1)
+    n1: 1524 0x5107F72: ??? (in /usr/lib/libicuuc.so.48.1.1)
+     n0: 1524 0x4789116: ???
+    n1: 1524 0x51175CA: ??? (in /usr/lib/libicuuc.so.48.1.1)
+     n1: 1524 0x511701F: icu_48::Locale::getDefault() (in /usr/lib/libicuuc.so.48.1.1)
+      n1: 1524 0x5117A82: ??? (in /usr/lib/libicuuc.so.48.1.1)
+       n1: 1524 0x5114962: uloc_getDefault_48 (in /usr/lib/libicuuc.so.48.1.1)
+        n1: 1524 0x510786D: ??? (in /usr/lib/libicuuc.so.48.1.1)
+         n1: 1524 0x5107AAA: ??? (in /usr/lib/libicuuc.so.48.1.1)
+          n1: 1524 0x5108C4B: ures_open_48 (in /usr/lib/libicuuc.so.48.1.1)
+           n0: 1524 0x4789116: ???
+    n1: 1524 0x50D58F6: ??? (in /usr/lib/libicuuc.so.48.1.1)
+     n0: 1524 0x519D1EB: ??? (in /usr/lib/libicuuc.so.48.1.1)
+  n0: 1553 in 10 places, all below massif's threshold (01.00%)
+ n1: 9192 0x4457B24: _nl_load_domain (loadmsgcat.c:1052)
+  n1: 9192 0x4457291: _nl_find_domain (finddomain.c:156)
+   n1: 9192 0x44569C8: __dcigettext (dcigettext.c:642)
+    n1: 9192 0x4455881: dcgettext (dcgettext.c:53)
+     n1: 9192 0x460A136: dlerror (dlerror.c:95)
+      n1: 9192 0x41BB233: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+       n1: 9192 0x41BB646: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+        n1: 9192 0x41B4299: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+         n1: 9192 0x4117808: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+          n1: 9192 0x40D8CD2: QLocalePrivate::updateSystemPrivate() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+           n0: 9192 0x40D8F82: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+ n0: 9180 in 119 places, all below massif's threshold (01.00%)
+ n2: 4976 0x462C2E0: ??? (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+  n3: 3856 0x46786FE: g_slice_alloc (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+   n1: 1512 0x4678794: g_slice_alloc0 (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+    n1: 1512 0x4681C62: g_thread_self (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+     n1: 1512 0x465D175: g_main_context_acquire (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+      n1: 1512 0x465D244: g_main_context_push_thread_default (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+       n1: 1512 0x41FD1D1: QEventDispatcherGlibPrivate::QEventDispatcherGlibPrivate(_GMainContext*) (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+        n1: 1512 0x41FD4EA: QEventDispatcherGlib::QEventDispatcherGlib(QObject*) (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+         n1: 1512 0x41CA481: QCoreApplicationPrivate::createEventDispatcher() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+          n1: 1512 0x41CDE97: QCoreApplication::init() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+           n0: 1512 0x44474D1: (below main) (libc-start.c:226)
+   n1: 1240 0x4630168: g_ptr_array_sized_new (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+    n1: 1240 0x46301C9: g_ptr_array_new (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+     n1: 1240 0x465BE05: g_main_context_new (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+      n1: 1240 0x465BEEB: g_main_context_default (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+       n1: 1240 0x41FD3FB: QEventDispatcherGlibPrivate::QEventDispatcherGlibPrivate(_GMainContext*) (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+        n1: 1240 0x41FD4EA: QEventDispatcherGlib::QEventDispatcherGlib(QObject*) (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+         n1: 1240 0x41CA481: QCoreApplicationPrivate::createEventDispatcher() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+          n1: 1240 0x41CDE97: QCoreApplication::init() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+           n0: 1240 0x44474D1: (below main) (libc-start.c:226)
+   n0: 1104 in 2 places, all below massif's threshold (01.00%)
+  n0: 1120 in 1 place, below massif's threshold (01.00%)
+ n1: 4108 0x80499E9: ILR::ILR(QObject*) (in /home/rf/privat/FP_MA/FP_MA-build-desktop-Qt_aus_PATH_Release/FP_MA)
+  n0: 4108 0x44474D1: (below main) (libc-start.c:226)
+ n1: 3944 0x4663751: ??? (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+  n3: 3944 0x4663E69: g_malloc0 (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+   n1: 2040 0x462C213: ??? (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+    n1: 2040 0x4678443: g_slice_alloc (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+     n1: 2040 0x46790C9: g_slist_prepend (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+      n1: 2040 0x468184B: g_once_init_enter (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+       n1: 2040 0x465BE74: g_main_context_new (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+        n1: 2040 0x465BEEB: g_main_context_default (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+         n1: 2040 0x41FD3FB: QEventDispatcherGlibPrivate::QEventDispatcherGlibPrivate(_GMainContext*) (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+          n1: 2040 0x41FD4EA: QEventDispatcherGlib::QEventDispatcherGlib(QObject*) (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+           n1: 2040 0x41CA481: QCoreApplicationPrivate::createEventDispatcher() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+            n1: 2040 0x41CDE97: QCoreApplication::init() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+             n0: 2040 0x44474D1: (below main) (libc-start.c:226)
+   n1: 1524 0x4664131: g_malloc0_n (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+    n0: 1524 in 3 places, all below massif's threshold (01.00%)
+   n0: 380 in 2 places, all below massif's threshold (01.00%)
+ n1: 2553 0x400AE1E: _dl_new_object (dl-object.c:77)
+  n1: 2553 0x4006446: _dl_map_object_from_fd (dl-load.c:1051)
+   n2: 2553 0x40083AE: _dl_map_object (dl-load.c:2568)
+    n1: 1289 0x4012D6B: dl_open_worker (dl-open.c:225)
+     n1: 1289 0x400ECCD: _dl_catch_error (dl-error.c:178)
+      n0: 1289 in 2 places, all below massif's threshold (01.00%)
+    n1: 1264 0x400D176: openaux (dl-deps.c:65)
+     n1: 1264 0x400ECCD: _dl_catch_error (dl-error.c:178)
+      n1: 1264 0x4012DC8: dl_open_worker (dl-open.c:262)
+       n1: 1264 0x400ECCD: _dl_catch_error (dl-error.c:178)
+        n1: 1264 0x4609BE7: dlopen_doit (dlopen.c:67)
+         n0: 1264 0x400ECCD: _dl_catch_error (dl-error.c:178)
+ n1: 2048 0x4458DFF: read_alias_file (localealias.c:309)
+  n1: 2048 0x445903B: _nl_expand_alias (localealias.c:189)
+   n1: 2048 0x4457111: _nl_find_domain (finddomain.c:120)
+    n1: 2048 0x44569C8: __dcigettext (dcigettext.c:642)
+     n1: 2048 0x4455881: dcgettext (dcgettext.c:53)
+      n1: 2048 0x460A136: dlerror (dlerror.c:95)
+       n1: 2048 0x41BB233: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+        n1: 2048 0x41BB646: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+         n1: 2048 0x41B4299: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+          n1: 2048 0x4117808: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+           n1: 2048 0x40D8CD2: QLocalePrivate::updateSystemPrivate() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+            n0: 2048 0x40D8F82: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+ n1: 1720 0x4452B17: _nl_intern_locale_data (loadlocale.c:96)
+  n1: 1720 0x44525E3: _nl_find_locale (findlocale.c:155)
+   n1: 1720 0x445211A: setlocale (setlocale.c:312)
+    n1: 1720 0x41CDE25: QCoreApplication::init() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+     n0: 1720 0x44474D1: (below main) (libc-start.c:226)
+#-----------
+snapshot=20
+#-----------
+time=6511194305
+mem_heap_B=115455
+mem_heap_extra_B=6393
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=21
+#-----------
+time=6976026601
+mem_heap_B=115455
+mem_heap_extra_B=6393
+mem_stacks_B=0
+heap_tree=detailed
+n10: 115455 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 65280 0x44486E3: __gconv_open (gconv_open.c:284)
+  n1: 65280 0x44480C0: iconv_open (iconv_open.c:72)
+   n2: 65280 0x4209274: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+    n1: 32640 0x4209DBB: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+     n1: 32640 0x4202819: QTextCodec::fromUnicode(QString const&) const (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+      n1: 32640 0x4103BAE: QString::toLocal8Bit() const (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+       n1: 32640 0x41498B8: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+        n1: 32640 0x4149E39: QFile::encodeName(QString const&) (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+         n1: 32640 0x41BBE32: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+          n1: 32640 0x41B4652: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+           n1: 32640 0x411768E: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+            n1: 32640 0x40D8CD2: QLocalePrivate::updateSystemPrivate() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+             n0: 32640 0x40D8F82: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+    n1: 32640 0x420A575: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+     n1: 32640 0x41044D6: QString::fromLocal8Bit(char const*, int) (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+      n1: 32640 0x41BB253: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+       n1: 32640 0x41BB646: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+        n1: 32640 0x41B4299: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+         n1: 32640 0x4117808: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+          n1: 32640 0x40D8CD2: QLocalePrivate::updateSystemPrivate() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+           n0: 32640 0x40D8F82: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+ n3: 12454 0x50D4BCE: uprv_malloc_48 (in /usr/lib/libicuuc.so.48.1.1)
+  n1: 6144 0x4FA0E68: ??? (in /usr/lib/libicui18n.so.48.1.1)
+   n1: 6144 0x4FA1ADD: ??? (in /usr/lib/libicui18n.so.48.1.1)
+    n0: 6144 0x4789116: ???
+  n1: 4572 0x50DA6C9: ??? (in /usr/lib/libicuuc.so.48.1.1)
+   n3: 4572 0x50DAB65: ??? (in /usr/lib/libicuuc.so.48.1.1)
+    n1: 1524 0x5107F72: ??? (in /usr/lib/libicuuc.so.48.1.1)
+     n0: 1524 0x4789116: ???
+    n1: 1524 0x51175CA: ??? (in /usr/lib/libicuuc.so.48.1.1)
+     n1: 1524 0x511701F: icu_48::Locale::getDefault() (in /usr/lib/libicuuc.so.48.1.1)
+      n1: 1524 0x5117A82: ??? (in /usr/lib/libicuuc.so.48.1.1)
+       n1: 1524 0x5114962: uloc_getDefault_48 (in /usr/lib/libicuuc.so.48.1.1)
+        n1: 1524 0x510786D: ??? (in /usr/lib/libicuuc.so.48.1.1)
+         n1: 1524 0x5107AAA: ??? (in /usr/lib/libicuuc.so.48.1.1)
+          n1: 1524 0x5108C4B: ures_open_48 (in /usr/lib/libicuuc.so.48.1.1)
+           n0: 1524 0x4789116: ???
+    n1: 1524 0x50D58F6: ??? (in /usr/lib/libicuuc.so.48.1.1)
+     n0: 1524 0x519D1EB: ??? (in /usr/lib/libicuuc.so.48.1.1)
+  n0: 1553 in 10 places, all below massif's threshold (01.00%)
+ n1: 9192 0x4457B24: _nl_load_domain (loadmsgcat.c:1052)
+  n1: 9192 0x4457291: _nl_find_domain (finddomain.c:156)
+   n1: 9192 0x44569C8: __dcigettext (dcigettext.c:642)
+    n1: 9192 0x4455881: dcgettext (dcgettext.c:53)
+     n1: 9192 0x460A136: dlerror (dlerror.c:95)
+      n1: 9192 0x41BB233: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+       n1: 9192 0x41BB646: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+        n1: 9192 0x41B4299: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+         n1: 9192 0x4117808: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+          n1: 9192 0x40D8CD2: QLocalePrivate::updateSystemPrivate() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+           n0: 9192 0x40D8F82: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+ n0: 9180 in 119 places, all below massif's threshold (01.00%)
+ n2: 4976 0x462C2E0: ??? (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+  n3: 3856 0x46786FE: g_slice_alloc (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+   n1: 1512 0x4678794: g_slice_alloc0 (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+    n1: 1512 0x4681C62: g_thread_self (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+     n1: 1512 0x465D175: g_main_context_acquire (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+      n1: 1512 0x465D244: g_main_context_push_thread_default (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+       n1: 1512 0x41FD1D1: QEventDispatcherGlibPrivate::QEventDispatcherGlibPrivate(_GMainContext*) (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+        n1: 1512 0x41FD4EA: QEventDispatcherGlib::QEventDispatcherGlib(QObject*) (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+         n1: 1512 0x41CA481: QCoreApplicationPrivate::createEventDispatcher() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+          n1: 1512 0x41CDE97: QCoreApplication::init() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+           n0: 1512 0x44474D1: (below main) (libc-start.c:226)
+   n1: 1240 0x4630168: g_ptr_array_sized_new (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+    n1: 1240 0x46301C9: g_ptr_array_new (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+     n1: 1240 0x465BE05: g_main_context_new (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+      n1: 1240 0x465BEEB: g_main_context_default (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+       n1: 1240 0x41FD3FB: QEventDispatcherGlibPrivate::QEventDispatcherGlibPrivate(_GMainContext*) (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+        n1: 1240 0x41FD4EA: QEventDispatcherGlib::QEventDispatcherGlib(QObject*) (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+         n1: 1240 0x41CA481: QCoreApplicationPrivate::createEventDispatcher() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+          n1: 1240 0x41CDE97: QCoreApplication::init() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+           n0: 1240 0x44474D1: (below main) (libc-start.c:226)
+   n0: 1104 in 2 places, all below massif's threshold (01.00%)
+  n0: 1120 in 1 place, below massif's threshold (01.00%)
+ n1: 4108 0x80499E9: ILR::ILR(QObject*) (in /home/rf/privat/FP_MA/FP_MA-build-desktop-Qt_aus_PATH_Release/FP_MA)
+  n0: 4108 0x44474D1: (below main) (libc-start.c:226)
+ n1: 3944 0x4663751: ??? (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+  n3: 3944 0x4663E69: g_malloc0 (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+   n1: 2040 0x462C213: ??? (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+    n1: 2040 0x4678443: g_slice_alloc (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+     n1: 2040 0x46790C9: g_slist_prepend (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+      n1: 2040 0x468184B: g_once_init_enter (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+       n1: 2040 0x465BE74: g_main_context_new (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+        n1: 2040 0x465BEEB: g_main_context_default (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+         n1: 2040 0x41FD3FB: QEventDispatcherGlibPrivate::QEventDispatcherGlibPrivate(_GMainContext*) (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+          n1: 2040 0x41FD4EA: QEventDispatcherGlib::QEventDispatcherGlib(QObject*) (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+           n1: 2040 0x41CA481: QCoreApplicationPrivate::createEventDispatcher() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+            n1: 2040 0x41CDE97: QCoreApplication::init() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+             n0: 2040 0x44474D1: (below main) (libc-start.c:226)
+   n1: 1524 0x4664131: g_malloc0_n (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+    n0: 1524 in 3 places, all below massif's threshold (01.00%)
+   n0: 380 in 2 places, all below massif's threshold (01.00%)
+ n1: 2553 0x400AE1E: _dl_new_object (dl-object.c:77)
+  n1: 2553 0x4006446: _dl_map_object_from_fd (dl-load.c:1051)
+   n2: 2553 0x40083AE: _dl_map_object (dl-load.c:2568)
+    n1: 1289 0x4012D6B: dl_open_worker (dl-open.c:225)
+     n1: 1289 0x400ECCD: _dl_catch_error (dl-error.c:178)
+      n0: 1289 in 2 places, all below massif's threshold (01.00%)
+    n1: 1264 0x400D176: openaux (dl-deps.c:65)
+     n1: 1264 0x400ECCD: _dl_catch_error (dl-error.c:178)
+      n1: 1264 0x4012DC8: dl_open_worker (dl-open.c:262)
+       n1: 1264 0x400ECCD: _dl_catch_error (dl-error.c:178)
+        n1: 1264 0x4609BE7: dlopen_doit (dlopen.c:67)
+         n0: 1264 0x400ECCD: _dl_catch_error (dl-error.c:178)
+ n1: 2048 0x4458DFF: read_alias_file (localealias.c:309)
+  n1: 2048 0x445903B: _nl_expand_alias (localealias.c:189)
+   n1: 2048 0x4457111: _nl_find_domain (finddomain.c:120)
+    n1: 2048 0x44569C8: __dcigettext (dcigettext.c:642)
+     n1: 2048 0x4455881: dcgettext (dcgettext.c:53)
+      n1: 2048 0x460A136: dlerror (dlerror.c:95)
+       n1: 2048 0x41BB233: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+        n1: 2048 0x41BB646: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+         n1: 2048 0x41B4299: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+          n1: 2048 0x4117808: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+           n1: 2048 0x40D8CD2: QLocalePrivate::updateSystemPrivate() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+            n0: 2048 0x40D8F82: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+ n1: 1720 0x4452B17: _nl_intern_locale_data (loadlocale.c:96)
+  n1: 1720 0x44525E3: _nl_find_locale (findlocale.c:155)
+   n1: 1720 0x445211A: setlocale (setlocale.c:312)
+    n1: 1720 0x41CDE25: QCoreApplication::init() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+     n0: 1720 0x44474D1: (below main) (libc-start.c:226)
+#-----------
+snapshot=22
+#-----------
+time=7285385789
+mem_heap_B=115455
+mem_heap_extra_B=6393
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=23
+#-----------
+time=7518569812
+mem_heap_B=115455
+mem_heap_extra_B=6393
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=24
+#-----------
+time=7827820904
+mem_heap_B=115455
+mem_heap_extra_B=6393
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=25
+#-----------
+time=8215399270
+mem_heap_B=115455
+mem_heap_extra_B=6393
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=26
+#-----------
+time=8448269823
+mem_heap_B=115455
+mem_heap_extra_B=6393
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=27
+#-----------
+time=8835276753
+mem_heap_B=115455
+mem_heap_extra_B=6393
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=28
+#-----------
+time=9068346854
+mem_heap_B=115455
+mem_heap_extra_B=6393
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=29
+#-----------
+time=9380211147
+mem_heap_B=115455
+mem_heap_extra_B=6393
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=30
+#-----------
+time=9612056753
+mem_heap_B=115455
+mem_heap_extra_B=6393
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=31
+#-----------
+time=10076669377
+mem_heap_B=115455
+mem_heap_extra_B=6393
+mem_stacks_B=0
+heap_tree=detailed
+n10: 115455 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 65280 0x44486E3: __gconv_open (gconv_open.c:284)
+  n1: 65280 0x44480C0: iconv_open (iconv_open.c:72)
+   n2: 65280 0x4209274: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+    n1: 32640 0x4209DBB: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+     n1: 32640 0x4202819: QTextCodec::fromUnicode(QString const&) const (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+      n1: 32640 0x4103BAE: QString::toLocal8Bit() const (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+       n1: 32640 0x41498B8: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+        n1: 32640 0x4149E39: QFile::encodeName(QString const&) (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+         n1: 32640 0x41BBE32: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+          n1: 32640 0x41B4652: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+           n1: 32640 0x411768E: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+            n1: 32640 0x40D8CD2: QLocalePrivate::updateSystemPrivate() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+             n0: 32640 0x40D8F82: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+    n1: 32640 0x420A575: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+     n1: 32640 0x41044D6: QString::fromLocal8Bit(char const*, int) (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+      n1: 32640 0x41BB253: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+       n1: 32640 0x41BB646: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+        n1: 32640 0x41B4299: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+         n1: 32640 0x4117808: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+          n1: 32640 0x40D8CD2: QLocalePrivate::updateSystemPrivate() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+           n0: 32640 0x40D8F82: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+ n3: 12454 0x50D4BCE: uprv_malloc_48 (in /usr/lib/libicuuc.so.48.1.1)
+  n1: 6144 0x4FA0E68: ??? (in /usr/lib/libicui18n.so.48.1.1)
+   n1: 6144 0x4FA1ADD: ??? (in /usr/lib/libicui18n.so.48.1.1)
+    n0: 6144 0x4789116: ???
+  n1: 4572 0x50DA6C9: ??? (in /usr/lib/libicuuc.so.48.1.1)
+   n3: 4572 0x50DAB65: ??? (in /usr/lib/libicuuc.so.48.1.1)
+    n1: 1524 0x5107F72: ??? (in /usr/lib/libicuuc.so.48.1.1)
+     n0: 1524 0x4789116: ???
+    n1: 1524 0x51175CA: ??? (in /usr/lib/libicuuc.so.48.1.1)
+     n1: 1524 0x511701F: icu_48::Locale::getDefault() (in /usr/lib/libicuuc.so.48.1.1)
+      n1: 1524 0x5117A82: ??? (in /usr/lib/libicuuc.so.48.1.1)
+       n1: 1524 0x5114962: uloc_getDefault_48 (in /usr/lib/libicuuc.so.48.1.1)
+        n1: 1524 0x510786D: ??? (in /usr/lib/libicuuc.so.48.1.1)
+         n1: 1524 0x5107AAA: ??? (in /usr/lib/libicuuc.so.48.1.1)
+          n1: 1524 0x5108C4B: ures_open_48 (in /usr/lib/libicuuc.so.48.1.1)
+           n0: 1524 0x4789116: ???
+    n1: 1524 0x50D58F6: ??? (in /usr/lib/libicuuc.so.48.1.1)
+     n0: 1524 0x519D1EB: ??? (in /usr/lib/libicuuc.so.48.1.1)
+  n0: 1553 in 10 places, all below massif's threshold (01.00%)
+ n1: 9192 0x4457B24: _nl_load_domain (loadmsgcat.c:1052)
+  n1: 9192 0x4457291: _nl_find_domain (finddomain.c:156)
+   n1: 9192 0x44569C8: __dcigettext (dcigettext.c:642)
+    n1: 9192 0x4455881: dcgettext (dcgettext.c:53)
+     n1: 9192 0x460A136: dlerror (dlerror.c:95)
+      n1: 9192 0x41BB233: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+       n1: 9192 0x41BB646: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+        n1: 9192 0x41B4299: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+         n1: 9192 0x4117808: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+          n1: 9192 0x40D8CD2: QLocalePrivate::updateSystemPrivate() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+           n0: 9192 0x40D8F82: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+ n0: 9180 in 119 places, all below massif's threshold (01.00%)
+ n2: 4976 0x462C2E0: ??? (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+  n3: 3856 0x46786FE: g_slice_alloc (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+   n1: 1512 0x4678794: g_slice_alloc0 (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+    n1: 1512 0x4681C62: g_thread_self (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+     n1: 1512 0x465D175: g_main_context_acquire (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+      n1: 1512 0x465D244: g_main_context_push_thread_default (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+       n1: 1512 0x41FD1D1: QEventDispatcherGlibPrivate::QEventDispatcherGlibPrivate(_GMainContext*) (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+        n1: 1512 0x41FD4EA: QEventDispatcherGlib::QEventDispatcherGlib(QObject*) (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+         n1: 1512 0x41CA481: QCoreApplicationPrivate::createEventDispatcher() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+          n1: 1512 0x41CDE97: QCoreApplication::init() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+           n0: 1512 0x44474D1: (below main) (libc-start.c:226)
+   n1: 1240 0x4630168: g_ptr_array_sized_new (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+    n1: 1240 0x46301C9: g_ptr_array_new (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+     n1: 1240 0x465BE05: g_main_context_new (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+      n1: 1240 0x465BEEB: g_main_context_default (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+       n1: 1240 0x41FD3FB: QEventDispatcherGlibPrivate::QEventDispatcherGlibPrivate(_GMainContext*) (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+        n1: 1240 0x41FD4EA: QEventDispatcherGlib::QEventDispatcherGlib(QObject*) (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+         n1: 1240 0x41CA481: QCoreApplicationPrivate::createEventDispatcher() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+          n1: 1240 0x41CDE97: QCoreApplication::init() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+           n0: 1240 0x44474D1: (below main) (libc-start.c:226)
+   n0: 1104 in 2 places, all below massif's threshold (01.00%)
+  n0: 1120 in 1 place, below massif's threshold (01.00%)
+ n1: 4108 0x80499E9: ILR::ILR(QObject*) (in /home/rf/privat/FP_MA/FP_MA-build-desktop-Qt_aus_PATH_Release/FP_MA)
+  n0: 4108 0x44474D1: (below main) (libc-start.c:226)
+ n1: 3944 0x4663751: ??? (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+  n3: 3944 0x4663E69: g_malloc0 (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+   n1: 2040 0x462C213: ??? (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+    n1: 2040 0x4678443: g_slice_alloc (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+     n1: 2040 0x46790C9: g_slist_prepend (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+      n1: 2040 0x468184B: g_once_init_enter (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+       n1: 2040 0x465BE74: g_main_context_new (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+        n1: 2040 0x465BEEB: g_main_context_default (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+         n1: 2040 0x41FD3FB: QEventDispatcherGlibPrivate::QEventDispatcherGlibPrivate(_GMainContext*) (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+          n1: 2040 0x41FD4EA: QEventDispatcherGlib::QEventDispatcherGlib(QObject*) (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+           n1: 2040 0x41CA481: QCoreApplicationPrivate::createEventDispatcher() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+            n1: 2040 0x41CDE97: QCoreApplication::init() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+             n0: 2040 0x44474D1: (below main) (libc-start.c:226)
+   n1: 1524 0x4664131: g_malloc0_n (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+    n0: 1524 in 3 places, all below massif's threshold (01.00%)
+   n0: 380 in 2 places, all below massif's threshold (01.00%)
+ n1: 2553 0x400AE1E: _dl_new_object (dl-object.c:77)
+  n1: 2553 0x4006446: _dl_map_object_from_fd (dl-load.c:1051)
+   n2: 2553 0x40083AE: _dl_map_object (dl-load.c:2568)
+    n1: 1289 0x4012D6B: dl_open_worker (dl-open.c:225)
+     n1: 1289 0x400ECCD: _dl_catch_error (dl-error.c:178)
+      n0: 1289 in 2 places, all below massif's threshold (01.00%)
+    n1: 1264 0x400D176: openaux (dl-deps.c:65)
+     n1: 1264 0x400ECCD: _dl_catch_error (dl-error.c:178)
+      n1: 1264 0x4012DC8: dl_open_worker (dl-open.c:262)
+       n1: 1264 0x400ECCD: _dl_catch_error (dl-error.c:178)
+        n1: 1264 0x4609BE7: dlopen_doit (dlopen.c:67)
+         n0: 1264 0x400ECCD: _dl_catch_error (dl-error.c:178)
+ n1: 2048 0x4458DFF: read_alias_file (localealias.c:309)
+  n1: 2048 0x445903B: _nl_expand_alias (localealias.c:189)
+   n1: 2048 0x4457111: _nl_find_domain (finddomain.c:120)
+    n1: 2048 0x44569C8: __dcigettext (dcigettext.c:642)
+     n1: 2048 0x4455881: dcgettext (dcgettext.c:53)
+      n1: 2048 0x460A136: dlerror (dlerror.c:95)
+       n1: 2048 0x41BB233: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+        n1: 2048 0x41BB646: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+         n1: 2048 0x41B4299: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+          n1: 2048 0x4117808: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+           n1: 2048 0x40D8CD2: QLocalePrivate::updateSystemPrivate() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+            n0: 2048 0x40D8F82: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+ n1: 1720 0x4452B17: _nl_intern_locale_data (loadlocale.c:96)
+  n1: 1720 0x44525E3: _nl_find_locale (findlocale.c:155)
+   n1: 1720 0x445211A: setlocale (setlocale.c:312)
+    n1: 1720 0x41CDE25: QCoreApplication::init() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+     n0: 1720 0x44474D1: (below main) (libc-start.c:226)
+#-----------
+snapshot=32
+#-----------
+time=10473642413
+mem_heap_B=115455
+mem_heap_extra_B=6393
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=33
+#-----------
+time=11002205923
+mem_heap_B=115455
+mem_heap_extra_B=6393
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=34
+#-----------
+time=11266630077
+mem_heap_B=115455
+mem_heap_extra_B=6393
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=35
+#-----------
+time=11663718311
+mem_heap_B=115455
+mem_heap_extra_B=6393
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=36
+#-----------
+time=11928973436
+mem_heap_B=115455
+mem_heap_extra_B=6393
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=37
+#-----------
+time=12193540104
+mem_heap_B=115455
+mem_heap_extra_B=6393
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=38
+#-----------
+time=12589757889
+mem_heap_B=115455
+mem_heap_extra_B=6393
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=39
+#-----------
+time=12854815064
+mem_heap_B=115455
+mem_heap_extra_B=6393
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=40
+#-----------
+time=13250820972
+mem_heap_B=115455
+mem_heap_extra_B=6393
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=41
+#-----------
+time=13514800689
+mem_heap_B=115455
+mem_heap_extra_B=6393
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=42
+#-----------
+time=14043161436
+mem_heap_B=115455
+mem_heap_extra_B=6393
+mem_stacks_B=0
+heap_tree=detailed
+n10: 115455 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 65280 0x44486E3: __gconv_open (gconv_open.c:284)
+  n1: 65280 0x44480C0: iconv_open (iconv_open.c:72)
+   n2: 65280 0x4209274: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+    n1: 32640 0x4209DBB: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+     n1: 32640 0x4202819: QTextCodec::fromUnicode(QString const&) const (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+      n1: 32640 0x4103BAE: QString::toLocal8Bit() const (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+       n1: 32640 0x41498B8: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+        n1: 32640 0x4149E39: QFile::encodeName(QString const&) (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+         n1: 32640 0x41BBE32: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+          n1: 32640 0x41B4652: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+           n1: 32640 0x411768E: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+            n1: 32640 0x40D8CD2: QLocalePrivate::updateSystemPrivate() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+             n0: 32640 0x40D8F82: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+    n1: 32640 0x420A575: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+     n1: 32640 0x41044D6: QString::fromLocal8Bit(char const*, int) (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+      n1: 32640 0x41BB253: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+       n1: 32640 0x41BB646: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+        n1: 32640 0x41B4299: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+         n1: 32640 0x4117808: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+          n1: 32640 0x40D8CD2: QLocalePrivate::updateSystemPrivate() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+           n0: 32640 0x40D8F82: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+ n3: 12454 0x50D4BCE: uprv_malloc_48 (in /usr/lib/libicuuc.so.48.1.1)
+  n1: 6144 0x4FA0E68: ??? (in /usr/lib/libicui18n.so.48.1.1)
+   n1: 6144 0x4FA1ADD: ??? (in /usr/lib/libicui18n.so.48.1.1)
+    n0: 6144 0x4789116: ???
+  n1: 4572 0x50DA6C9: ??? (in /usr/lib/libicuuc.so.48.1.1)
+   n3: 4572 0x50DAB65: ??? (in /usr/lib/libicuuc.so.48.1.1)
+    n1: 1524 0x5107F72: ??? (in /usr/lib/libicuuc.so.48.1.1)
+     n0: 1524 0x4789116: ???
+    n1: 1524 0x51175CA: ??? (in /usr/lib/libicuuc.so.48.1.1)
+     n1: 1524 0x511701F: icu_48::Locale::getDefault() (in /usr/lib/libicuuc.so.48.1.1)
+      n1: 1524 0x5117A82: ??? (in /usr/lib/libicuuc.so.48.1.1)
+       n1: 1524 0x5114962: uloc_getDefault_48 (in /usr/lib/libicuuc.so.48.1.1)
+        n1: 1524 0x510786D: ??? (in /usr/lib/libicuuc.so.48.1.1)
+         n1: 1524 0x5107AAA: ??? (in /usr/lib/libicuuc.so.48.1.1)
+          n1: 1524 0x5108C4B: ures_open_48 (in /usr/lib/libicuuc.so.48.1.1)
+           n0: 1524 0x4789116: ???
+    n1: 1524 0x50D58F6: ??? (in /usr/lib/libicuuc.so.48.1.1)
+     n0: 1524 0x519D1EB: ??? (in /usr/lib/libicuuc.so.48.1.1)
+  n0: 1553 in 10 places, all below massif's threshold (01.00%)
+ n1: 9192 0x4457B24: _nl_load_domain (loadmsgcat.c:1052)
+  n1: 9192 0x4457291: _nl_find_domain (finddomain.c:156)
+   n1: 9192 0x44569C8: __dcigettext (dcigettext.c:642)
+    n1: 9192 0x4455881: dcgettext (dcgettext.c:53)
+     n1: 9192 0x460A136: dlerror (dlerror.c:95)
+      n1: 9192 0x41BB233: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+       n1: 9192 0x41BB646: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+        n1: 9192 0x41B4299: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+         n1: 9192 0x4117808: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+          n1: 9192 0x40D8CD2: QLocalePrivate::updateSystemPrivate() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+           n0: 9192 0x40D8F82: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+ n0: 9180 in 119 places, all below massif's threshold (01.00%)
+ n2: 4976 0x462C2E0: ??? (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+  n3: 3856 0x46786FE: g_slice_alloc (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+   n1: 1512 0x4678794: g_slice_alloc0 (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+    n1: 1512 0x4681C62: g_thread_self (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+     n1: 1512 0x465D175: g_main_context_acquire (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+      n1: 1512 0x465D244: g_main_context_push_thread_default (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+       n1: 1512 0x41FD1D1: QEventDispatcherGlibPrivate::QEventDispatcherGlibPrivate(_GMainContext*) (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+        n1: 1512 0x41FD4EA: QEventDispatcherGlib::QEventDispatcherGlib(QObject*) (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+         n1: 1512 0x41CA481: QCoreApplicationPrivate::createEventDispatcher() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+          n1: 1512 0x41CDE97: QCoreApplication::init() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+           n0: 1512 0x44474D1: (below main) (libc-start.c:226)
+   n1: 1240 0x4630168: g_ptr_array_sized_new (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+    n1: 1240 0x46301C9: g_ptr_array_new (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+     n1: 1240 0x465BE05: g_main_context_new (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+      n1: 1240 0x465BEEB: g_main_context_default (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+       n1: 1240 0x41FD3FB: QEventDispatcherGlibPrivate::QEventDispatcherGlibPrivate(_GMainContext*) (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+        n1: 1240 0x41FD4EA: QEventDispatcherGlib::QEventDispatcherGlib(QObject*) (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+         n1: 1240 0x41CA481: QCoreApplicationPrivate::createEventDispatcher() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+          n1: 1240 0x41CDE97: QCoreApplication::init() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+           n0: 1240 0x44474D1: (below main) (libc-start.c:226)
+   n0: 1104 in 2 places, all below massif's threshold (01.00%)
+  n0: 1120 in 1 place, below massif's threshold (01.00%)
+ n1: 4108 0x80499E9: ILR::ILR(QObject*) (in /home/rf/privat/FP_MA/FP_MA-build-desktop-Qt_aus_PATH_Release/FP_MA)
+  n0: 4108 0x44474D1: (below main) (libc-start.c:226)
+ n1: 3944 0x4663751: ??? (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+  n3: 3944 0x4663E69: g_malloc0 (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+   n1: 2040 0x462C213: ??? (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+    n1: 2040 0x4678443: g_slice_alloc (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+     n1: 2040 0x46790C9: g_slist_prepend (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+      n1: 2040 0x468184B: g_once_init_enter (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+       n1: 2040 0x465BE74: g_main_context_new (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+        n1: 2040 0x465BEEB: g_main_context_default (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+         n1: 2040 0x41FD3FB: QEventDispatcherGlibPrivate::QEventDispatcherGlibPrivate(_GMainContext*) (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+          n1: 2040 0x41FD4EA: QEventDispatcherGlib::QEventDispatcherGlib(QObject*) (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+           n1: 2040 0x41CA481: QCoreApplicationPrivate::createEventDispatcher() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+            n1: 2040 0x41CDE97: QCoreApplication::init() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+             n0: 2040 0x44474D1: (below main) (libc-start.c:226)
+   n1: 1524 0x4664131: g_malloc0_n (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+    n0: 1524 in 3 places, all below massif's threshold (01.00%)
+   n0: 380 in 2 places, all below massif's threshold (01.00%)
+ n1: 2553 0x400AE1E: _dl_new_object (dl-object.c:77)
+  n1: 2553 0x4006446: _dl_map_object_from_fd (dl-load.c:1051)
+   n2: 2553 0x40083AE: _dl_map_object (dl-load.c:2568)
+    n1: 1289 0x4012D6B: dl_open_worker (dl-open.c:225)
+     n1: 1289 0x400ECCD: _dl_catch_error (dl-error.c:178)
+      n0: 1289 in 2 places, all below massif's threshold (01.00%)
+    n1: 1264 0x400D176: openaux (dl-deps.c:65)
+     n1: 1264 0x400ECCD: _dl_catch_error (dl-error.c:178)
+      n1: 1264 0x4012DC8: dl_open_worker (dl-open.c:262)
+       n1: 1264 0x400ECCD: _dl_catch_error (dl-error.c:178)
+        n1: 1264 0x4609BE7: dlopen_doit (dlopen.c:67)
+         n0: 1264 0x400ECCD: _dl_catch_error (dl-error.c:178)
+ n1: 2048 0x4458DFF: read_alias_file (localealias.c:309)
+  n1: 2048 0x445903B: _nl_expand_alias (localealias.c:189)
+   n1: 2048 0x4457111: _nl_find_domain (finddomain.c:120)
+    n1: 2048 0x44569C8: __dcigettext (dcigettext.c:642)
+     n1: 2048 0x4455881: dcgettext (dcgettext.c:53)
+      n1: 2048 0x460A136: dlerror (dlerror.c:95)
+       n1: 2048 0x41BB233: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+        n1: 2048 0x41BB646: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+         n1: 2048 0x41B4299: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+          n1: 2048 0x4117808: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+           n1: 2048 0x40D8CD2: QLocalePrivate::updateSystemPrivate() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+            n0: 2048 0x40D8F82: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+ n1: 1720 0x4452B17: _nl_intern_locale_data (loadlocale.c:96)
+  n1: 1720 0x44525E3: _nl_find_locale (findlocale.c:155)
+   n1: 1720 0x445211A: setlocale (setlocale.c:312)
+    n1: 1720 0x41CDE25: QCoreApplication::init() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+     n0: 1720 0x44474D1: (below main) (libc-start.c:226)
+#-----------
+snapshot=43
+#-----------
+time=14572158554
+mem_heap_B=115455
+mem_heap_extra_B=6393
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=44
+#-----------
+time=14969933461
+mem_heap_B=115455
+mem_heap_extra_B=6393
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=45
+#-----------
+time=15235826153
+mem_heap_B=115455
+mem_heap_extra_B=6393
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=46
+#-----------
+time=15501359715
+mem_heap_B=115455
+mem_heap_extra_B=6393
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=47
+#-----------
+time=15899729312
+mem_heap_B=115455
+mem_heap_extra_B=6393
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=48
+#-----------
+time=16297280607
+mem_heap_B=115455
+mem_heap_extra_B=6393
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=49
+#-----------
+time=16693667191
+mem_heap_B=115455
+mem_heap_extra_B=6393
+mem_stacks_B=0
+heap_tree=detailed
+n10: 115455 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 65280 0x44486E3: __gconv_open (gconv_open.c:284)
+  n1: 65280 0x44480C0: iconv_open (iconv_open.c:72)
+   n2: 65280 0x4209274: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+    n1: 32640 0x4209DBB: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+     n1: 32640 0x4202819: QTextCodec::fromUnicode(QString const&) const (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+      n1: 32640 0x4103BAE: QString::toLocal8Bit() const (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+       n1: 32640 0x41498B8: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+        n1: 32640 0x4149E39: QFile::encodeName(QString const&) (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+         n1: 32640 0x41BBE32: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+          n1: 32640 0x41B4652: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+           n1: 32640 0x411768E: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+            n1: 32640 0x40D8CD2: QLocalePrivate::updateSystemPrivate() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+             n0: 32640 0x40D8F82: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+    n1: 32640 0x420A575: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+     n1: 32640 0x41044D6: QString::fromLocal8Bit(char const*, int) (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+      n1: 32640 0x41BB253: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+       n1: 32640 0x41BB646: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+        n1: 32640 0x41B4299: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+         n1: 32640 0x4117808: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+          n1: 32640 0x40D8CD2: QLocalePrivate::updateSystemPrivate() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+           n0: 32640 0x40D8F82: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+ n3: 12454 0x50D4BCE: uprv_malloc_48 (in /usr/lib/libicuuc.so.48.1.1)
+  n1: 6144 0x4FA0E68: ??? (in /usr/lib/libicui18n.so.48.1.1)
+   n1: 6144 0x4FA1ADD: ??? (in /usr/lib/libicui18n.so.48.1.1)
+    n0: 6144 0x4789116: ???
+  n1: 4572 0x50DA6C9: ??? (in /usr/lib/libicuuc.so.48.1.1)
+   n3: 4572 0x50DAB65: ??? (in /usr/lib/libicuuc.so.48.1.1)
+    n1: 1524 0x5107F72: ??? (in /usr/lib/libicuuc.so.48.1.1)
+     n0: 1524 0x4789116: ???
+    n1: 1524 0x51175CA: ??? (in /usr/lib/libicuuc.so.48.1.1)
+     n1: 1524 0x511701F: icu_48::Locale::getDefault() (in /usr/lib/libicuuc.so.48.1.1)
+      n1: 1524 0x5117A82: ??? (in /usr/lib/libicuuc.so.48.1.1)
+       n1: 1524 0x5114962: uloc_getDefault_48 (in /usr/lib/libicuuc.so.48.1.1)
+        n1: 1524 0x510786D: ??? (in /usr/lib/libicuuc.so.48.1.1)
+         n1: 1524 0x5107AAA: ??? (in /usr/lib/libicuuc.so.48.1.1)
+          n1: 1524 0x5108C4B: ures_open_48 (in /usr/lib/libicuuc.so.48.1.1)
+           n0: 1524 0x4789116: ???
+    n1: 1524 0x50D58F6: ??? (in /usr/lib/libicuuc.so.48.1.1)
+     n0: 1524 0x519D1EB: ??? (in /usr/lib/libicuuc.so.48.1.1)
+  n0: 1553 in 10 places, all below massif's threshold (01.00%)
+ n1: 9192 0x4457B24: _nl_load_domain (loadmsgcat.c:1052)
+  n1: 9192 0x4457291: _nl_find_domain (finddomain.c:156)
+   n1: 9192 0x44569C8: __dcigettext (dcigettext.c:642)
+    n1: 9192 0x4455881: dcgettext (dcgettext.c:53)
+     n1: 9192 0x460A136: dlerror (dlerror.c:95)
+      n1: 9192 0x41BB233: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+       n1: 9192 0x41BB646: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+        n1: 9192 0x41B4299: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+         n1: 9192 0x4117808: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+          n1: 9192 0x40D8CD2: QLocalePrivate::updateSystemPrivate() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+           n0: 9192 0x40D8F82: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+ n0: 9180 in 119 places, all below massif's threshold (01.00%)
+ n2: 4976 0x462C2E0: ??? (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+  n3: 3856 0x46786FE: g_slice_alloc (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+   n1: 1512 0x4678794: g_slice_alloc0 (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+    n1: 1512 0x4681C62: g_thread_self (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+     n1: 1512 0x465D175: g_main_context_acquire (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+      n1: 1512 0x465D244: g_main_context_push_thread_default (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+       n1: 1512 0x41FD1D1: QEventDispatcherGlibPrivate::QEventDispatcherGlibPrivate(_GMainContext*) (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+        n1: 1512 0x41FD4EA: QEventDispatcherGlib::QEventDispatcherGlib(QObject*) (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+         n1: 1512 0x41CA481: QCoreApplicationPrivate::createEventDispatcher() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+          n1: 1512 0x41CDE97: QCoreApplication::init() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+           n0: 1512 0x44474D1: (below main) (libc-start.c:226)
+   n1: 1240 0x4630168: g_ptr_array_sized_new (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+    n1: 1240 0x46301C9: g_ptr_array_new (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+     n1: 1240 0x465BE05: g_main_context_new (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+      n1: 1240 0x465BEEB: g_main_context_default (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+       n1: 1240 0x41FD3FB: QEventDispatcherGlibPrivate::QEventDispatcherGlibPrivate(_GMainContext*) (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+        n1: 1240 0x41FD4EA: QEventDispatcherGlib::QEventDispatcherGlib(QObject*) (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+         n1: 1240 0x41CA481: QCoreApplicationPrivate::createEventDispatcher() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+          n1: 1240 0x41CDE97: QCoreApplication::init() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+           n0: 1240 0x44474D1: (below main) (libc-start.c:226)
+   n0: 1104 in 2 places, all below massif's threshold (01.00%)
+  n0: 1120 in 1 place, below massif's threshold (01.00%)
+ n1: 4108 0x80499E9: ILR::ILR(QObject*) (in /home/rf/privat/FP_MA/FP_MA-build-desktop-Qt_aus_PATH_Release/FP_MA)
+  n0: 4108 0x44474D1: (below main) (libc-start.c:226)
+ n1: 3944 0x4663751: ??? (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+  n3: 3944 0x4663E69: g_malloc0 (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+   n1: 2040 0x462C213: ??? (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+    n1: 2040 0x4678443: g_slice_alloc (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+     n1: 2040 0x46790C9: g_slist_prepend (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+      n1: 2040 0x468184B: g_once_init_enter (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+       n1: 2040 0x465BE74: g_main_context_new (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+        n1: 2040 0x465BEEB: g_main_context_default (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+         n1: 2040 0x41FD3FB: QEventDispatcherGlibPrivate::QEventDispatcherGlibPrivate(_GMainContext*) (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+          n1: 2040 0x41FD4EA: QEventDispatcherGlib::QEventDispatcherGlib(QObject*) (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+           n1: 2040 0x41CA481: QCoreApplicationPrivate::createEventDispatcher() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+            n1: 2040 0x41CDE97: QCoreApplication::init() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+             n0: 2040 0x44474D1: (below main) (libc-start.c:226)
+   n1: 1524 0x4664131: g_malloc0_n (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+    n0: 1524 in 3 places, all below massif's threshold (01.00%)
+   n0: 380 in 2 places, all below massif's threshold (01.00%)
+ n1: 2553 0x400AE1E: _dl_new_object (dl-object.c:77)
+  n1: 2553 0x4006446: _dl_map_object_from_fd (dl-load.c:1051)
+   n2: 2553 0x40083AE: _dl_map_object (dl-load.c:2568)
+    n1: 1289 0x4012D6B: dl_open_worker (dl-open.c:225)
+     n1: 1289 0x400ECCD: _dl_catch_error (dl-error.c:178)
+      n0: 1289 in 2 places, all below massif's threshold (01.00%)
+    n1: 1264 0x400D176: openaux (dl-deps.c:65)
+     n1: 1264 0x400ECCD: _dl_catch_error (dl-error.c:178)
+      n1: 1264 0x4012DC8: dl_open_worker (dl-open.c:262)
+       n1: 1264 0x400ECCD: _dl_catch_error (dl-error.c:178)
+        n1: 1264 0x4609BE7: dlopen_doit (dlopen.c:67)
+         n0: 1264 0x400ECCD: _dl_catch_error (dl-error.c:178)
+ n1: 2048 0x4458DFF: read_alias_file (localealias.c:309)
+  n1: 2048 0x445903B: _nl_expand_alias (localealias.c:189)
+   n1: 2048 0x4457111: _nl_find_domain (finddomain.c:120)
+    n1: 2048 0x44569C8: __dcigettext (dcigettext.c:642)
+     n1: 2048 0x4455881: dcgettext (dcgettext.c:53)
+      n1: 2048 0x460A136: dlerror (dlerror.c:95)
+       n1: 2048 0x41BB233: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+        n1: 2048 0x41BB646: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+         n1: 2048 0x41B4299: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+          n1: 2048 0x4117808: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+           n1: 2048 0x40D8CD2: QLocalePrivate::updateSystemPrivate() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+            n0: 2048 0x40D8F82: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+ n1: 1720 0x4452B17: _nl_intern_locale_data (loadlocale.c:96)
+  n1: 1720 0x44525E3: _nl_find_locale (findlocale.c:155)
+   n1: 1720 0x445211A: setlocale (setlocale.c:312)
+    n1: 1720 0x41CDE25: QCoreApplication::init() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+     n0: 1720 0x44474D1: (below main) (libc-start.c:226)
+#-----------
+snapshot=50
+#-----------
+time=16922334041
+mem_heap_B=115455
+mem_heap_extra_B=6393
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=51
+#-----------
+time=17151947339
+mem_heap_B=115455
+mem_heap_extra_B=6393
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=52
+#-----------
+time=17381581875
+mem_heap_B=115455
+mem_heap_extra_B=6393
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=53
+#-----------
+time=17611265529
+mem_heap_B=115455
+mem_heap_extra_B=6393
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=54
+#-----------
+time=17839703741
+mem_heap_B=115455
+mem_heap_extra_B=6393
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=55
+#-----------
+time=18068709384
+mem_heap_B=115455
+mem_heap_extra_B=6393
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=56
+#-----------
+time=18297559347
+mem_heap_B=115455
+mem_heap_extra_B=6393
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=57
+#-----------
+time=18526725835
+mem_heap_B=115455
+mem_heap_extra_B=6393
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=58
+#-----------
+time=18755409753
+mem_heap_B=115455
+mem_heap_extra_B=6393
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=59
+#-----------
+time=18984372693
+mem_heap_B=115455
+mem_heap_extra_B=6393
+mem_stacks_B=0
+heap_tree=detailed
+n10: 115455 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 65280 0x44486E3: __gconv_open (gconv_open.c:284)
+  n1: 65280 0x44480C0: iconv_open (iconv_open.c:72)
+   n2: 65280 0x4209274: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+    n1: 32640 0x4209DBB: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+     n1: 32640 0x4202819: QTextCodec::fromUnicode(QString const&) const (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+      n1: 32640 0x4103BAE: QString::toLocal8Bit() const (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+       n1: 32640 0x41498B8: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+        n1: 32640 0x4149E39: QFile::encodeName(QString const&) (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+         n1: 32640 0x41BBE32: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+          n1: 32640 0x41B4652: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+           n1: 32640 0x411768E: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+            n1: 32640 0x40D8CD2: QLocalePrivate::updateSystemPrivate() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+             n0: 32640 0x40D8F82: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+    n1: 32640 0x420A575: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+     n1: 32640 0x41044D6: QString::fromLocal8Bit(char const*, int) (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+      n1: 32640 0x41BB253: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+       n1: 32640 0x41BB646: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+        n1: 32640 0x41B4299: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+         n1: 32640 0x4117808: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+          n1: 32640 0x40D8CD2: QLocalePrivate::updateSystemPrivate() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+           n0: 32640 0x40D8F82: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+ n3: 12454 0x50D4BCE: uprv_malloc_48 (in /usr/lib/libicuuc.so.48.1.1)
+  n1: 6144 0x4FA0E68: ??? (in /usr/lib/libicui18n.so.48.1.1)
+   n1: 6144 0x4FA1ADD: ??? (in /usr/lib/libicui18n.so.48.1.1)
+    n0: 6144 0x4789116: ???
+  n1: 4572 0x50DA6C9: ??? (in /usr/lib/libicuuc.so.48.1.1)
+   n3: 4572 0x50DAB65: ??? (in /usr/lib/libicuuc.so.48.1.1)
+    n1: 1524 0x5107F72: ??? (in /usr/lib/libicuuc.so.48.1.1)
+     n0: 1524 0x4789116: ???
+    n1: 1524 0x51175CA: ??? (in /usr/lib/libicuuc.so.48.1.1)
+     n1: 1524 0x511701F: icu_48::Locale::getDefault() (in /usr/lib/libicuuc.so.48.1.1)
+      n1: 1524 0x5117A82: ??? (in /usr/lib/libicuuc.so.48.1.1)
+       n1: 1524 0x5114962: uloc_getDefault_48 (in /usr/lib/libicuuc.so.48.1.1)
+        n1: 1524 0x510786D: ??? (in /usr/lib/libicuuc.so.48.1.1)
+         n1: 1524 0x5107AAA: ??? (in /usr/lib/libicuuc.so.48.1.1)
+          n1: 1524 0x5108C4B: ures_open_48 (in /usr/lib/libicuuc.so.48.1.1)
+           n0: 1524 0x4789116: ???
+    n1: 1524 0x50D58F6: ??? (in /usr/lib/libicuuc.so.48.1.1)
+     n0: 1524 0x519D1EB: ??? (in /usr/lib/libicuuc.so.48.1.1)
+  n0: 1553 in 10 places, all below massif's threshold (01.00%)
+ n1: 9192 0x4457B24: _nl_load_domain (loadmsgcat.c:1052)
+  n1: 9192 0x4457291: _nl_find_domain (finddomain.c:156)
+   n1: 9192 0x44569C8: __dcigettext (dcigettext.c:642)
+    n1: 9192 0x4455881: dcgettext (dcgettext.c:53)
+     n1: 9192 0x460A136: dlerror (dlerror.c:95)
+      n1: 9192 0x41BB233: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+       n1: 9192 0x41BB646: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+        n1: 9192 0x41B4299: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+         n1: 9192 0x4117808: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+          n1: 9192 0x40D8CD2: QLocalePrivate::updateSystemPrivate() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+           n0: 9192 0x40D8F82: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+ n0: 9180 in 119 places, all below massif's threshold (01.00%)
+ n2: 4976 0x462C2E0: ??? (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+  n3: 3856 0x46786FE: g_slice_alloc (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+   n1: 1512 0x4678794: g_slice_alloc0 (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+    n1: 1512 0x4681C62: g_thread_self (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+     n1: 1512 0x465D175: g_main_context_acquire (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+      n1: 1512 0x465D244: g_main_context_push_thread_default (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+       n1: 1512 0x41FD1D1: QEventDispatcherGlibPrivate::QEventDispatcherGlibPrivate(_GMainContext*) (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+        n1: 1512 0x41FD4EA: QEventDispatcherGlib::QEventDispatcherGlib(QObject*) (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+         n1: 1512 0x41CA481: QCoreApplicationPrivate::createEventDispatcher() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+          n1: 1512 0x41CDE97: QCoreApplication::init() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+           n0: 1512 0x44474D1: (below main) (libc-start.c:226)
+   n1: 1240 0x4630168: g_ptr_array_sized_new (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+    n1: 1240 0x46301C9: g_ptr_array_new (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+     n1: 1240 0x465BE05: g_main_context_new (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+      n1: 1240 0x465BEEB: g_main_context_default (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+       n1: 1240 0x41FD3FB: QEventDispatcherGlibPrivate::QEventDispatcherGlibPrivate(_GMainContext*) (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+        n1: 1240 0x41FD4EA: QEventDispatcherGlib::QEventDispatcherGlib(QObject*) (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+         n1: 1240 0x41CA481: QCoreApplicationPrivate::createEventDispatcher() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+          n1: 1240 0x41CDE97: QCoreApplication::init() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+           n0: 1240 0x44474D1: (below main) (libc-start.c:226)
+   n0: 1104 in 2 places, all below massif's threshold (01.00%)
+  n0: 1120 in 1 place, below massif's threshold (01.00%)
+ n1: 4108 0x80499E9: ILR::ILR(QObject*) (in /home/rf/privat/FP_MA/FP_MA-build-desktop-Qt_aus_PATH_Release/FP_MA)
+  n0: 4108 0x44474D1: (below main) (libc-start.c:226)
+ n1: 3944 0x4663751: ??? (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+  n3: 3944 0x4663E69: g_malloc0 (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+   n1: 2040 0x462C213: ??? (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+    n1: 2040 0x4678443: g_slice_alloc (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+     n1: 2040 0x46790C9: g_slist_prepend (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+      n1: 2040 0x468184B: g_once_init_enter (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+       n1: 2040 0x465BE74: g_main_context_new (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+        n1: 2040 0x465BEEB: g_main_context_default (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+         n1: 2040 0x41FD3FB: QEventDispatcherGlibPrivate::QEventDispatcherGlibPrivate(_GMainContext*) (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+          n1: 2040 0x41FD4EA: QEventDispatcherGlib::QEventDispatcherGlib(QObject*) (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+           n1: 2040 0x41CA481: QCoreApplicationPrivate::createEventDispatcher() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+            n1: 2040 0x41CDE97: QCoreApplication::init() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+             n0: 2040 0x44474D1: (below main) (libc-start.c:226)
+   n1: 1524 0x4664131: g_malloc0_n (in /lib/i386-linux-gnu/libglib-2.0.so.0.3200.4)
+    n0: 1524 in 3 places, all below massif's threshold (01.00%)
+   n0: 380 in 2 places, all below massif's threshold (01.00%)
+ n1: 2553 0x400AE1E: _dl_new_object (dl-object.c:77)
+  n1: 2553 0x4006446: _dl_map_object_from_fd (dl-load.c:1051)
+   n2: 2553 0x40083AE: _dl_map_object (dl-load.c:2568)
+    n1: 1289 0x4012D6B: dl_open_worker (dl-open.c:225)
+     n1: 1289 0x400ECCD: _dl_catch_error (dl-error.c:178)
+      n0: 1289 in 2 places, all below massif's threshold (01.00%)
+    n1: 1264 0x400D176: openaux (dl-deps.c:65)
+     n1: 1264 0x400ECCD: _dl_catch_error (dl-error.c:178)
+      n1: 1264 0x4012DC8: dl_open_worker (dl-open.c:262)
+       n1: 1264 0x400ECCD: _dl_catch_error (dl-error.c:178)
+        n1: 1264 0x4609BE7: dlopen_doit (dlopen.c:67)
+         n0: 1264 0x400ECCD: _dl_catch_error (dl-error.c:178)
+ n1: 2048 0x4458DFF: read_alias_file (localealias.c:309)
+  n1: 2048 0x445903B: _nl_expand_alias (localealias.c:189)
+   n1: 2048 0x4457111: _nl_find_domain (finddomain.c:120)
+    n1: 2048 0x44569C8: __dcigettext (dcigettext.c:642)
+     n1: 2048 0x4455881: dcgettext (dcgettext.c:53)
+      n1: 2048 0x460A136: dlerror (dlerror.c:95)
+       n1: 2048 0x41BB233: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+        n1: 2048 0x41BB646: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+         n1: 2048 0x41B4299: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+          n1: 2048 0x4117808: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+           n1: 2048 0x40D8CD2: QLocalePrivate::updateSystemPrivate() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+            n0: 2048 0x40D8F82: ??? (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+ n1: 1720 0x4452B17: _nl_intern_locale_data (loadlocale.c:96)
+  n1: 1720 0x44525E3: _nl_find_locale (findlocale.c:155)
+   n1: 1720 0x445211A: setlocale (setlocale.c:312)
+    n1: 1720 0x41CDE25: QCoreApplication::init() (in /usr/lib/i386-linux-gnu/libQtCore.so.4.8.1)
+     n0: 1720 0x44474D1: (below main) (libc-start.c:226)
+#-----------
+snapshot=60
+#-----------
+time=19213415813
+mem_heap_B=115455
+mem_heap_extra_B=6393
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=61
+#-----------
+time=19443455630
+mem_heap_B=115455
+mem_heap_extra_B=6393
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=62
+#-----------
+time=19672806205
+mem_heap_B=115455
+mem_heap_extra_B=6393
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=63
+#-----------
+time=19901598926
+mem_heap_B=115455
+mem_heap_extra_B=6393
+mem_stacks_B=0
+heap_tree=empty
