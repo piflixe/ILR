@@ -4,38 +4,43 @@ void setup() {
   analogReadResolution(12);
 
   // Using internal Timer interrupt (DueTimer library)
-  Timer3.attachInterrupt(changeIndex).start(Tsmic);
+  Timer3.setFrequency(sampleFreq);
+  Timer3.attachInterrupt(changeIndex).stop(); // init Timer in stop condition
   
   // using Serial Interface for debugging
-  Serial.begin(115200);
+  Serial.begin(115200);  
+  // Serial.println("Arduino is up and running");
+  inputString1.reserve(3); // reserve some bytes for the inputString
+  inputString2.reserve(3); //
 
   // configuring PINs
   pinMode(PIN_ADC, INPUT);
   pinMode(PIN_DAC, OUTPUT);
   pinMode(PIN_HARDWAREDEBUG, OUTPUT);
   digitalWrite(PIN_HARDWAREDEBUG, LOW);
+  pinMode(PIN_ADC_OVERRANGE, OUTPUT);
+  digitalWrite(PIN_ADC_OVERRANGE, LOW);
+  pinMode(PIN_DAC_OVERRANGE, OUTPUT);
+  digitalWrite(PIN_DAC_OVERRANGE, LOW);
   
-  DEBUGPRINT("gelesene Werte:")
-  // initialise variables
+  initOutput();
+  
+  if(debug==true) delay(1000);
+}
 
-  // initialise error and outputSignal 
-  for (int j = 0; j < Nval; j++)
+void initOutput()
+{
+  DEBUGPRINT("gelesene Werte:")
+  for (int j = 0; j<Nval; j++)
   {
-    error[j] = 0;                     // setting ADC and error values to 0
-    outputSignal[j] = table[j];       // setting DAC values to data table stored in progmem
-    //pgm_read_word(&table[j]);
+    error[j] = 0;               // initialising error values
+    errorSum[j] = 0;            // resetting I sum
+    outputSignal[j] = table[j]; // setting DAC values to data table
+                                // use pgm_read_word(&table[j]) if table is stored in PROGMEN
+    analogWrite(PIN_DAC, 2048); // Write mean value to DAC so that physics can settle
 
     // printing outputSignal on Serial Console for debugging
     DEBUGPRINT(outputSignal[j]);
-  }
-
-  for (int j = 0; j < Nsmooth; j++)
-  {
-    SmoothingWeight[j] = ILCgain/Nsmooth;
-    if(Nsmooth>6)  // apply linear window
-    {
-      if ( (j==1) || (j==Nsmooth) ) SmoothingWeight[j] = SmoothingWeight[j] / 2;
-    }
-  }
-  if(debug==true) delay(1000);
+  }  
 }
+
